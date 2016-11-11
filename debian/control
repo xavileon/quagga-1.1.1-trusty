@@ -54,21 +54,7 @@ Description: BGP/OSPF/RIP routing daemon
  It is more than a routed replacement, it can be used as a Route Server and
  a Route Reflector.
 
-Package: quagga-dbg
-Architecture: any
-Depends: quagga (= ${binary:Version}),
-         ${misc:Depends},
-         ${shlibs:Depends}
-Priority: extra
-Section: debug
-Description: BGP/OSPF/RIP routing daemon (debug symbols)
- This package provides debugging symbols for all binary packages built from
- quagga source package. It's highly recommended to have this package installed
- before reporting any Quagga crashes to either Quagga developers or Debian
- package maintainers.
-
 Package: quagga-doc
-Section: net
 Architecture: all
 Depends: ${misc:Depends}
 Suggests: quagga
