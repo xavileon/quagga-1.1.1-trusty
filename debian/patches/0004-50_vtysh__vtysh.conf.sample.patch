@@ -1,0 +1,22 @@
+From: Debian QA Group <packages@qa.debian.org>
+Date: Sat, 12 Nov 2016 01:16:08 +1100
+Subject: 50_vtysh__vtysh.conf.sample
+
+---
+ vtysh/vtysh.conf.sample | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/vtysh/vtysh.conf.sample b/vtysh/vtysh.conf.sample
+index 4e0a2be..82789f0 100644
+--- a/vtysh/vtysh.conf.sample
++++ b/vtysh/vtysh.conf.sample
+@@ -1,7 +1,7 @@
+ !
+ ! Sample configuration file for vtysh.
+ !
+-!service integrated-vtysh-config
++service integrated-vtysh-config
+ !hostname quagga-router
+-!username root nopassword
++username root nopassword
+ !

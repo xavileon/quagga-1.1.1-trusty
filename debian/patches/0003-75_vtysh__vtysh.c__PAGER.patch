@@ -1,10 +1,16 @@
-Description: Use the pager program that was choosen with the Debian
-  update-alternative system. (Updated line numbers for 0.99.22)
-Author: Christian Hammers <ch@debian.org>
+From: Debian QA Group <packages@qa.debian.org>
+Date: Sat, 12 Nov 2016 01:16:08 +1100
+Subject: 75_vtysh__vtysh.c__PAGER
 
---- old/vtysh/vtysh.c.orig	2004-10-18 01:23:16.000000000 +0200
-+++ new/vtysh/vtysh.c	2004-10-18 01:25:15.000000000 +0200
-@@ -265,10 +265,16 @@
+---
+ vtysh/vtysh.c | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
+
+diff --git a/vtysh/vtysh.c b/vtysh/vtysh.c
+index c491824..0e63d0d 100644
+--- a/vtysh/vtysh.c
++++ b/vtysh/vtysh.c
+@@ -250,10 +250,16 @@ vtysh_pager_init (void)
  
    pager_defined = getenv ("VTYSH_PAGER");
  

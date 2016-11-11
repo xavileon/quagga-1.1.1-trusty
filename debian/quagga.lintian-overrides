@@ -2,3 +2,4 @@ quagga: non-dev-pkg-with-shlib-symlink usr/lib/*/libospfapiclient.so.0.0.0 usr/l
 quagga: non-dev-pkg-with-shlib-symlink usr/lib/*/libospf.so.0.0.0 usr/lib/*/libospf.so
 quagga: non-dev-pkg-with-shlib-symlink usr/lib/*/libzebra.so.0.0.0 usr/lib/*/libzebra.so
 quagga: package-name-doesnt-match-sonames libfpm-pb0 libospf0 libospfapiclient0 libquagga-pb0 libzebra0
+quagga: spelling-error-in-binary usr/lib/quagga/pimd writen written

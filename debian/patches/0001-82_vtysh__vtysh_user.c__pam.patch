@@ -1,0 +1,21 @@
+From: Debian QA Group <packages@qa.debian.org>
+Date: Sat, 12 Nov 2016 01:16:08 +1100
+Subject: 82_vtysh__vtysh_user.c__pam
+
+---
+ vtysh/vtysh_user.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/vtysh/vtysh_user.c b/vtysh/vtysh_user.c
+index 248b181..d1fb727 100644
+--- a/vtysh/vtysh_user.c
++++ b/vtysh/vtysh_user.c
+@@ -59,6 +59,8 @@ vtysh_pam (const char *user)
+   /* Is user really user? */
+   if (ret == PAM_SUCCESS)
+     ret = pam_authenticate (pamh, 0);
++  if (ret != PAM_SUCCESS)
++    printf("Not authenticated. Check /etc/pam.d/quagga.\n");
+   /* printf ("ret %d\n", ret); */
+   
+ #if 0

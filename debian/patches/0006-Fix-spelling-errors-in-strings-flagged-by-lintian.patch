@@ -1,0 +1,426 @@
+From: Scott Leggett <scott@sl.id.au>
+Date: Sat, 12 Nov 2016 01:58:52 +1100
+Subject: Fix spelling errors in strings flagged by lintian.
+
+---
+ bgpd/bgp_attr.c       |  2 +-
+ bgpd/bgp_damp.c       |  2 +-
+ bgpd/bgp_fsm.c        |  2 +-
+ bgpd/bgp_packet.c     |  2 +-
+ bgpd/bgp_vty.c        |  2 +-
+ isisd/isis_spf.c      |  2 +-
+ lib/command.c         |  2 +-
+ lib/command.h         |  2 +-
+ lib/memory.c          |  2 +-
+ lib/regex.c           |  2 +-
+ lib/sockunion.c       |  2 +-
+ lib/vty.c             |  2 +-
+ lib/vty.h             |  2 +-
+ ospf6d/ospf6_area.c   |  6 +++---
+ ospfd/ospf_te.h       |  2 +-
+ ripd/ripd.c           |  4 ++--
+ tests/aspath_test.c   |  2 +-
+ vtysh/vtysh_config.c  |  2 +-
+ zebra/interface.c     | 22 +++++++++++-----------
+ zebra/irdp_packet.c   |  4 ++--
+ zebra/kernel_socket.c |  2 +-
+ 21 files changed, 35 insertions(+), 35 deletions(-)
+
+diff --git a/bgpd/bgp_attr.c b/bgpd/bgp_attr.c
+index 6aab50a..f73f608 100644
+--- a/bgpd/bgp_attr.c
++++ b/bgpd/bgp_attr.c
+@@ -2256,7 +2256,7 @@ bgp_attr_parse (struct peer *peer, struct attr *attr, bgp_size_t size,
+ 	  ret = BGP_ATTR_PARSE_ERROR;
+ 	}
+ 
+-      /* If hard error occured immediately return to the caller. */
++      /* If hard error occurred immediately return to the caller. */
+       if (ret == BGP_ATTR_PARSE_ERROR)
+         {
+           zlog (peer->log, LOG_WARNING,
+diff --git a/bgpd/bgp_damp.c b/bgpd/bgp_damp.c
+index ac64723..aa514ce 100644
+--- a/bgpd/bgp_damp.c
++++ b/bgpd/bgp_damp.c
+@@ -663,7 +663,7 @@ bgp_show_dampening_parameters (struct vty *vty, afi_t afi, safi_t safi)
+                     damp->suppress_value, VTY_NEWLINE);
+       vty_out (vty, "Max suppress time: %ld min%s",
+                     damp->max_suppress_time / 60, VTY_NEWLINE);
+-      vty_out (vty, "Max supress penalty: %u%s",
++      vty_out (vty, "Max suppress penalty: %u%s",
+                     damp->ceiling, VTY_NEWLINE);
+       vty_out (vty, "%s", VTY_NEWLINE);
+     }
+diff --git a/bgpd/bgp_fsm.c b/bgpd/bgp_fsm.c
+index 2e07d93..6197d51 100644
+--- a/bgpd/bgp_fsm.c
++++ b/bgpd/bgp_fsm.c
+@@ -391,7 +391,7 @@ bgp_graceful_stale_timer_expire (struct thread *thread)
+   return 0;
+ }
+ 
+-/* Called after event occured, this function change status and reset
++/* Called after event occurred, this function change status and reset
+    read/write and timer thread. */
+ void
+ bgp_fsm_change_status (struct peer *peer, int status)
+diff --git a/bgpd/bgp_packet.c b/bgpd/bgp_packet.c
+index f42e544..95e80b2 100644
+--- a/bgpd/bgp_packet.c
++++ b/bgpd/bgp_packet.c
+@@ -2399,7 +2399,7 @@ bgp_read_packet (struct peer *peer)
+   /* Read packet from fd. */
+   nbytes = stream_read_try (peer->ibuf, peer->fd, readsize);
+ 
+-  /* If read byte is smaller than zero then error occured. */
++  /* If read byte is smaller than zero then error occurred. */
+   if (nbytes < 0) 
+     {
+       /* Transient error should retry */
+diff --git a/bgpd/bgp_vty.c b/bgpd/bgp_vty.c
+index 7af4e81..36beb5d 100644
+--- a/bgpd/bgp_vty.c
++++ b/bgpd/bgp_vty.c
+@@ -4325,7 +4325,7 @@ ALIAS (neighbor_allowas_in,
+        NEIGHBOR_STR
+        NEIGHBOR_ADDR_STR2
+        "Accept as-path with my AS present in it\n"
+-       "Number of occurances of AS number\n")
++       "Number of occurrences of AS number\n")
+ 
+ DEFUN (no_neighbor_allowas_in,
+        no_neighbor_allowas_in_cmd,
+diff --git a/isisd/isis_spf.c b/isisd/isis_spf.c
+index 6b2456f..82d743b 100644
+--- a/isisd/isis_spf.c
++++ b/isisd/isis_spf.c
+@@ -1033,7 +1033,7 @@ isis_spf_preload_tent (struct isis_spftree *spftree, int level,
+ 		  break;
+ 		case ISIS_SYSTYPE_UNKNOWN:
+ 		default:
+-		  zlog_warn ("isis_spf_preload_tent unknow adj type");
++		  zlog_warn ("isis_spf_preload_tent unknown adj type");
+ 		}
+ 	    }
+ 	  list_delete (adj_list);
+diff --git a/lib/command.c b/lib/command.c
+index ab46fc4..5572c65 100644
+--- a/lib/command.c
++++ b/lib/command.c
+@@ -1754,7 +1754,7 @@ cmd_element_match(struct cmd_element *cmd_element,
+  *                That vector will contain all struct command_token* of the
+  *                cmd_element which matched against the given vline at the given
+  *                index.
+- * @return A code specifying if an error occured. If all went right, it's
++ * @return A code specifying if an error occurred. If all went right, it's
+  *         CMD_SUCCESS.
+  */
+ static int
+diff --git a/lib/command.h b/lib/command.h
+index cc5dd08..60079b3 100644
+--- a/lib/command.h
++++ b/lib/command.h
+@@ -502,7 +502,7 @@ struct cmd_token
+ #define IN_STR  "Filter incoming routing updates\n"
+ #define V4NOTATION_STR "specify by IPv4 address notation(e.g. 0.0.0.0)\n"
+ #define OSPF6_NUMBER_STR "Specify by number\n"
+-#define INTERFACE_STR "Interface infomation\n"
++#define INTERFACE_STR "Interface information\n"
+ #define IFNAME_STR "Interface name(e.g. ep0)\n"
+ #define IP6_STR "IPv6 Information\n"
+ #define OSPF6_STR "Open Shortest Path First (OSPF) for IPv6\n"
+diff --git a/lib/memory.c b/lib/memory.c
+index 13e1fb7..6c21657 100644
+--- a/lib/memory.c
++++ b/lib/memory.c
+@@ -43,7 +43,7 @@ static const struct message mstr [] =
+   { 0, NULL },
+ };
+ 
+-/* Fatal memory allocation error occured. */
++/* Fatal memory allocation error occurred. */
+ static void __attribute__ ((noreturn))
+ zerror (const char *fname, int type, size_t size)
+ {
+diff --git a/lib/regex.c b/lib/regex.c
+index 122f447..cedf499 100644
+--- a/lib/regex.c
++++ b/lib/regex.c
+@@ -5726,7 +5726,7 @@ regcomp (preg, pattern, cflags)
+ 	 buffer.  */
+       if (re_compile_fastmap (preg) == -2)
+ 	{
+-	  /* Some error occured while computing the fastmap, just forget
++	  /* Some error occurred while computing the fastmap, just forget
+ 	     about it.  */
+ 	  free (preg->fastmap);
+ 	  preg->fastmap = NULL;
+diff --git a/lib/sockunion.c b/lib/sockunion.c
+index 4a22c63..f53169e 100644
+--- a/lib/sockunion.c
++++ b/lib/sockunion.c
+@@ -286,7 +286,7 @@ sockunion_log (const union sockunion *su, char *buf, size_t len)
+ }
+ 
+ /* sockunion_connect returns
+-   -1 : error occured
++   -1 : error occurred
+    0 : connect success
+    1 : connect is in progress */
+ enum connect_result
+diff --git a/lib/vty.c b/lib/vty.c
+index 7ba277f..6d91bb6 100644
+--- a/lib/vty.c
++++ b/lib/vty.c
+@@ -2365,7 +2365,7 @@ vty_read_file (FILE *confp)
+            fprintf (stderr, "*** Error reading config: There is no such command.\n");
+            break;
+        }
+-      fprintf (stderr, "*** Error occured processing line %u, below:\n%s\n",
++      fprintf (stderr, "*** Error occurred processing line %u, below:\n%s\n",
+ 		       line_num, vty->buf);
+       vty_close (vty);
+       exit (1);
+diff --git a/lib/vty.h b/lib/vty.h
+index 806f2c6..e9cbe05 100644
+--- a/lib/vty.h
++++ b/lib/vty.h
+@@ -169,7 +169,7 @@ do { \
+  * The logic below ((TMPL) <= ((MIN) && (TMPL) != (MIN)) is
+  * done to circumvent the compiler complaining about
+  * comparing unsigned numbers against zero, if MIN is zero.
+- * NB: The compiler isn't smart enough to supress the warning
++ * NB: The compiler isn't smart enough to suprress the warning
+  * if you write (MIN) != 0 && tmpl < (MIN).
+  */
+ #define VTY_GET_INTEGER_RANGE_HEART(NAME,TMPL,STR,MIN,MAX)      \
+diff --git a/ospf6d/ospf6_area.c b/ospf6d/ospf6_area.c
+index 1861fe7..6d82e72 100644
+--- a/ospf6d/ospf6_area.c
++++ b/ospf6d/ospf6_area.c
+@@ -657,7 +657,7 @@ DEFUN (show_ipv6_ospf6_spf_tree,
+        SHOW_STR
+        IP6_STR
+        OSPF6_STR
+-       "Shortest Path First caculation\n"
++       "Shortest Path First calculation\n"
+        "Show SPF tree\n")
+ {
+   struct listnode *node;
+@@ -694,7 +694,7 @@ DEFUN (show_ipv6_ospf6_area_spf_tree,
+        OSPF6_STR
+        OSPF6_AREA_STR
+        OSPF6_AREA_ID_STR
+-       "Shortest Path First caculation\n"
++       "Shortest Path First calculation\n"
+        "Show SPF tree\n")
+ {
+   u_int32_t area_id;
+@@ -738,7 +738,7 @@ DEFUN (show_ipv6_ospf6_simulate_spf_tree_root,
+        SHOW_STR
+        IP6_STR
+        OSPF6_STR
+-       "Shortest Path First caculation\n"
++       "Shortest Path First calculation\n"
+        "Show SPF tree\n"
+        "Specify root's router-id to calculate another router's SPF tree\n")
+ {
+diff --git a/ospfd/ospf_te.h b/ospfd/ospf_te.h
+index 8bb77c4..d80629c 100644
+--- a/ospfd/ospf_te.h
++++ b/ospfd/ospf_te.h
+@@ -386,7 +386,7 @@ struct te_link_subtlv
+ /* Following structure are internal use only. */
+ struct ospf_mpls_te
+ {
+-  /* Status of MPLS-TE: enable or disbale */
++  /* Status of MPLS-TE: enable or disable */
+   status_t status;
+ 
+   /* RFC5392 */
+diff --git a/ripd/ripd.c b/ripd/ripd.c
+index a5bc067..af74e3a 100644
+--- a/ripd/ripd.c
++++ b/ripd/ripd.c
+@@ -2533,14 +2533,14 @@ rip_update_process (int route_type)
+ 	ifp = if_lookup_address (p->prefix);
+ 	if (! ifp)
+ 	  {
+-	    zlog_warn ("Neighbor %s doesnt have connected interface!",
++	    zlog_warn ("Neighbor %s doesn't have connected interface!",
+ 		       inet_ntoa (p->prefix));
+ 	    continue;
+ 	  }
+         
+         if ( (connected = connected_lookup_address (ifp, p->prefix)) == NULL)
+           {
+-            zlog_warn ("Neighbor %s doesnt have connected network",
++            zlog_warn ("Neighbor %s doesn't have connected network",
+                        inet_ntoa (p->prefix));
+             continue;
+           }
+diff --git a/tests/aspath_test.c b/tests/aspath_test.c
+index 5a0899e..d970211 100644
+--- a/tests/aspath_test.c
++++ b/tests/aspath_test.c
+@@ -1037,7 +1037,7 @@ validate (struct aspath *as, const struct test_spec *sp)
+       fails++;
+       printf ("firstas: %d,  got %d\n", sp->first,
+               aspath_firstas_check (as,sp->first));
+-      printf ("loop does: %d %d, doesnt: %d %d\n",
++      printf ("loop does: %d %d, doesn't: %d %d\n",
+               sp->does_loop, aspath_loop_check (as, sp->does_loop),
+               sp->doesnt_loop, aspath_loop_check (as, sp->doesnt_loop));
+       printf ("private check: %d %d\n", sp->private_as,
+diff --git a/vtysh/vtysh_config.c b/vtysh/vtysh_config.c
+index c80c42a..d28a8f7 100644
+--- a/vtysh/vtysh_config.c
++++ b/vtysh/vtysh_config.c
+@@ -388,7 +388,7 @@ vtysh_read_file (FILE *confp)
+ 	  fprintf (stderr, "There is no such command.\n");
+ 	  break;
+ 	}
+-      fprintf (stderr, "Error occured during reading below line.\n%s\n", 
++      fprintf (stderr, "Error occurred during reading below line.\n%s\n", 
+ 	       vty->buf);
+       exit (1);
+     }
+diff --git a/zebra/interface.c b/zebra/interface.c
+index 5e89db9..b702359 100644
+--- a/zebra/interface.c
++++ b/zebra/interface.c
+@@ -1143,7 +1143,7 @@ DEFUN (show_interface_name, show_interface_name_cmd,
+        "show interface IFNAME",
+        SHOW_STR
+        "Interface status and configuration\n"
+-       "Inteface name\n")
++       "Interface name\n")
+ {
+   struct interface *ifp;
+   vrf_id_t vrf_id = VRF_DEFAULT;
+@@ -1178,7 +1178,7 @@ ALIAS (show_interface_name,
+        "show interface IFNAME " VRF_CMD_STR,
+        SHOW_STR
+        "Interface status and configuration\n"
+-       "Inteface name\n"
++       "Interface name\n"
+        VRF_CMD_HELP_STR)
+ 
+ /* Show specified interface to vty. */
+@@ -1186,7 +1186,7 @@ DEFUN (show_interface_name_vrf_all, show_interface_name_vrf_all_cmd,
+        "show interface IFNAME " VRF_ALL_CMD_STR,
+        SHOW_STR
+        "Interface status and configuration\n"
+-       "Inteface name\n"
++       "Interface name\n"
+        VRF_ALL_CMD_HELP_STR)
+ {
+   struct interface *ifp;
+@@ -1696,7 +1696,7 @@ DEFUN (no_link_params_metric,
+        no_link_params_metric_cmd,
+        "no metric",
+        NO_STR
+-       "Disbale Link Metric on this interface\n")
++       "Disable Link Metric on this interface\n")
+ {
+   struct interface *ifp = (struct interface *) vty->index;
+   
+@@ -1851,7 +1851,7 @@ DEFUN (no_link_params_admin_grp,
+        no_link_params_admin_grp_cmd,
+        "no admin-grp",
+        NO_STR
+-       "Disbale Administrative group membership on this interface\n")
++       "Disable Administrative group membership on this interface\n")
+ {
+   struct interface *ifp = (struct interface *) vty->index;
+   
+@@ -2021,7 +2021,7 @@ DEFUN (no_link_params_delay,
+        no_link_params_delay_cmd,
+        "no delay",
+        NO_STR
+-       "Disbale Unidirectional Average, Min & Max Link Delay on this interface\n")
++       "Disable Unidirectional Average, Min & Max Link Delay on this interface\n")
+ {
+   struct interface *ifp = (struct interface *) vty->index;
+   struct if_link_params *iflp = if_link_params_get (ifp);
+@@ -2062,7 +2062,7 @@ DEFUN (no_link_params_delay_var,
+        no_link_params_delay_var_cmd,
+        "no delay-variation",
+        NO_STR
+-       "Disbale Unidirectional Delay Variation on this interface\n")
++       "Disable Unidirectional Delay Variation on this interface\n")
+ {
+   struct interface *ifp = (struct interface *) vty->index;
+   
+@@ -2102,7 +2102,7 @@ DEFUN (no_link_params_pkt_loss,
+        no_link_params_pkt_loss_cmd,
+        "no packet-loss",
+        NO_STR
+-       "Disbale Unidirectional Link Packet Loss on this interface\n")
++       "Disable Unidirectional Link Packet Loss on this interface\n")
+ {
+   struct interface *ifp = (struct interface *) vty->index;
+   
+@@ -2148,7 +2148,7 @@ DEFUN (no_link_params_res_bw,
+        no_link_params_res_bw_cmd,
+        "no res-bw",
+        NO_STR
+-       "Disbale Unidirectional Residual Bandwidth on this interface\n")
++       "Disable Unidirectional Residual Bandwidth on this interface\n")
+ {
+   struct interface *ifp = (struct interface *) vty->index;
+   
+@@ -2194,7 +2194,7 @@ DEFUN (no_link_params_ava_bw,
+        no_link_params_ava_bw_cmd,
+        "no ava-bw",
+        NO_STR
+-       "Disbale Unidirectional Available Bandwidth on this interface\n")
++       "Disable Unidirectional Available Bandwidth on this interface\n")
+ {
+   struct interface *ifp = (struct interface *) vty->index;
+   
+@@ -2240,7 +2240,7 @@ DEFUN (no_link_params_use_bw,
+        no_link_params_use_bw_cmd,
+        "no use-bw",
+        NO_STR
+-       "Disbale Unidirectional Utilised Bandwidth on this interface\n")
++       "Disable Unidirectional Utilised Bandwidth on this interface\n")
+ {
+   struct interface *ifp = (struct interface *) vty->index;
+   
+diff --git a/zebra/irdp_packet.c b/zebra/irdp_packet.c
+index 0d31050..afe035b 100644
+--- a/zebra/irdp_packet.c
++++ b/zebra/irdp_packet.c
+@@ -102,7 +102,7 @@ parse_irdp_packet(char *p,
+ 
+   if (len != iplen)
+     {
+-      zlog_err ("IRDP: RX length doesnt match IP length");
++      zlog_err ("IRDP: RX length doesn't match IP length");
+       return;
+     }
+ 
+@@ -113,7 +113,7 @@ parse_irdp_packet(char *p,
+       return;
+     }
+     
+-  /* XXX: RAW doesnt receive link-layer, surely? ??? */
++  /* XXX: RAW doesn't receive link-layer, surely? ??? */
+   /* Check so we don't checksum packets longer than oure RX_BUF - (ethlen +
+    len of IP-header) 14+20 */
+   if (iplen > IRDP_RX_BUF-34) 
+diff --git a/zebra/kernel_socket.c b/zebra/kernel_socket.c
+index 5e68c56..38f22c5 100644
+--- a/zebra/kernel_socket.c
++++ b/zebra/kernel_socket.c
+@@ -474,7 +474,7 @@ ifm_read (struct if_msghdr *ifm)
+       if (ifnlen && (strncmp (ifp->name, ifname, IFNAMSIZ) != 0) )
+         {
+           if (IS_ZEBRA_DEBUG_KERNEL)
+-            zlog_debug ("%s: ifp name %s doesnt match sdl name %s",
++            zlog_debug ("%s: ifp name %s doesn't match sdl name %s",
+                         __func__, ifp->name, ifname);
+           ifp = NULL;
+         }

@@ -1,0 +1,21 @@
+From: Scott Leggett <scott@sl.id.au>
+Date: Sat, 12 Nov 2016 01:26:10 +1100
+Subject: Tweak grammar in zebra manpage to keep lintian happy.
+
+---
+ doc/zebra.8 | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/doc/zebra.8 b/doc/zebra.8
+index a40909a..1c4fc63 100644
+--- a/doc/zebra.8
++++ b/doc/zebra.8
+@@ -80,7 +80,7 @@ handle flood of netlink messages from kernel. If you ever see "recvmsg overrun"
+ messages in zebra log, you are in trouble.
+ 
+ Solution is to increase receive buffer of netlink socket. Note that kernel
+-< 2.6.14 doesn't allow to increase it over maximum value defined in
++< 2.6.14 doesn't allow increasing it over the maximum value defined in
+ \fI/proc/sys/net/core/rmem_max\fR. If you want to do it, you have to increase
+ maximum before starting zebra.
+ 
