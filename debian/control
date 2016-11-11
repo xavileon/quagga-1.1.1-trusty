@@ -5,7 +5,7 @@ Maintainer: Debian QA Group <packages@qa.debian.org>
 Uploaders: Florian Weimer <fw@debian.org>
 Build-Depends: autotools-dev,
                chrpath,
-               debhelper (>= 7.0.50~),
+               debhelper (>= 9.0.0),
                dh-autoreconf,
                gawk,
                ghostscript,
