@@ -25,7 +25,6 @@ Build-Depends: autotools-dev,
                texlive-latex-base
 Standards-Version: 3.9.8
 Homepage: http://www.quagga.net/
-XS-Testsuite: autopkgtest
 
 Package: quagga
 Architecture: any
