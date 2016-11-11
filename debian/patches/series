@@ -4,3 +4,4 @@
 0004-50_vtysh__vtysh.conf.sample.patch
 0005-Tweak-grammar-in-zebra-manpage-to-keep-lintian-happy.patch
 0006-Fix-spelling-errors-in-strings-flagged-by-lintian.patch
+0007-Fix-manpage-number-for-ospfclient.patch
