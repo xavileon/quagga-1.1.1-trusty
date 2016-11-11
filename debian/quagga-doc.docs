@@ -1,0 +1,9 @@
+AUTHORS
+NEWS
+README
+REPORTING-BUGS
+bgpd/BGP4-MIB.txt
+doc/BGP-TypeCode
+doc/draft-zebra-00.txt
+doc/mpls/
+doc/quagga.pdf
