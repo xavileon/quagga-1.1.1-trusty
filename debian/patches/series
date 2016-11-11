@@ -1,4 +1,3 @@
-dump_fix.patch
 90_configure_ncurses.diff
 82_vtysh__vtysh_user.c__pam.diff
 80_vtysh__vtysh.c__privs.diff
