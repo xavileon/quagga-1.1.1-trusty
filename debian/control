@@ -55,6 +55,7 @@ Description: BGP/OSPF/RIP routing daemon
  a Route Reflector.
 
 Package: quagga-doc
+Section: doc
 Architecture: all
 Depends: ${misc:Depends}
 Suggests: quagga
