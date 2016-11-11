@@ -74,6 +74,7 @@ override_dh_auto_build:
 	rm -vf doc/quagga.info
 	dh_auto_build -- -C doc quagga.info
 	rm -vf doc/quagga.info.html*
+	dh_auto_build -- -C doc draft-zebra-00.txt
  
 override_dh_auto_install:
 	dh_auto_install
