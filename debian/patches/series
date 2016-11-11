@@ -2,4 +2,3 @@
 80_vtysh__vtysh.c__privs.diff
 75_vtysh__vtysh.c__PAGER.diff
 50_vtysh__vtysh.conf.sample.diff
-CVE-2016-1245.diff
