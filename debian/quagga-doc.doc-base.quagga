@@ -1,0 +1,8 @@
+Document: quagga
+Title: Quagga Manual
+Author: Quagga Contributors
+Abstract: This file documents the Quagga Software Routing Suite which manages common TCP/IP routing protocols.
+Section: Network/Communication
+
+Format: pdf
+Files: /usr/share/doc/quagga-doc/quagga.pdf.gz

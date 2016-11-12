@@ -1,0 +1,8 @@
+Document: reporting-bugs
+Title: REPORTING-BUGS
+Author: Quagga Contributors
+Abstract: How to report bugs in the Quagga suite.
+Section: Network/Communication
+
+Format: text
+Files: /usr/share/doc/quagga-doc/REPORTING-BUGS
