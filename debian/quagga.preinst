@@ -26,6 +26,9 @@ if ! getent passwd quagga >/dev/null; then
           quagga  >/dev/null
 fi
 
+# add quagga user to the quaggavty group
+adduser quagga quaggavty
+
 # Do not change permissions when upgrading as it would violate policy.
 if [ "$1" = "install" ]; then
   # Logfiles are group readable in case users were put into the quagga group.
