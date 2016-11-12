@@ -8,7 +8,192 @@ Copyright: 1996-2003 by the original Zebra authors:
                         Kunihiro Ishiguro <kunihiro@zebra.org>
                         Toshiaki Takada <takada@zebra.org>
                         Yasuhiro Ohara <yasu@sfc.wide.ad.jp>
-           2003-2012 by the Quagga Project, mostly Paul Jakma <paul@jakma.org>
+           2003- by the Quagga Project:
+                        2002-2006 paul <paul>
+                        2003-2005 gdt <gdt>
+                        2003-2005 hasso <hasso>
+                        2003-2005 jardin <jardin>
+                        2004-2005 ajs <ajs>
+                        2005-2006 vincent <vincent>
+                        2006-2008, 2011 Andrew J. Schorr <ajschorr@alumni.princeton.edu>
+                        2006-2007 Greg Troxel <gdt@fnord.ir.bbn.com>
+                        2006-2009 Paul Jakma <paul.jakma@sun.com>
+                        2007 David Young <dyoung@pobox.com>
+                        2007-2008 Denis Ovsienko <linux@pilot.org.ua>
+                        2007 Hasso Tepper <hasso@quagga.net>
+                        2007 Vincent Jardin <vincent.jardin@6wind.com>
+                        2007 vize <vize>
+                        2008 Bartek Kania <mrbk@gnarf.org>
+                        2008 Daniel Ng <daniel_ng11@lycos.com>
+                        2008 Jingjing Duan <Jingjing.Duan@sun.com>
+                        2008-2010, 2012-2015 Joakim Tjernlund <Joakim.Tjernlund@transmode.se>
+                        2008-2011 Michael Lambert <lambert@psc.edu>
+                        2008 Paul P Komkoff Jr <i@stingr.net>
+                        2008 Roy <quagga@de.vio.us>
+                        2008-2009 Stephen Hemminger <stephen.hemminger@vyatta.com>
+                        2008-2009, 2013-2016 Timo Teräs <timo.teras@iki.fi>
+                        2009 Andrew J. Schorr <schorr@ti82.(none)>
+                        2009, 2011 Chris Caputo <ccaputo@alt.net>
+                        2009-2012 David Ward <david.ward@ll.mit.edu>
+                        2009-2012 Denis Ovsienko <infrastation@yandex.ru>
+                        2009 Denis Ovsienko <pilot@etcnet.org>
+                        2009-2010 Dmitry Tejblum <tejblum@yandex-team.ru>
+                        2009 Francesco Dolcini <fdolcini@sysnetsistemi.it>
+                        2009 Jeremy Jackson <jerj@coplanar.net>
+                        2009 Jingjing Duan <jingjing.duan@sun.com>
+                        2009 Jon <jonirucoeith@gmail.com>
+                        2009 Krisztian Kovacs <Kris.Kovacs@MorganStanley.com>
+                        2009 Mathieu Goessens <gebura@poolp.org>
+                        2009, 2011-2012 Nick Hilliard <nick@inex.ie>
+                        2009 Ondrej Zajicek <santiago@crfreenet.org>
+                        2009-2012, 2014-2015 Paul Jakma <paul@quagga.net>
+                        2009 Stephen Hemminger <shemminger@debian.(none)>
+                        2009-2014 Stephen Hemminger <shemminger@vyatta.com>
+                        2009, 2014 Steve Hill <quagga@cheesy.sackheads.org>
+                        2009 Stig Thormodsrud <stig@io.vyatta.com>
+                        2009 Takashi Sogabe <sogabe@iij.ad.jp>
+                        2009 Thijs Kinkhorst <thijs@debian.org>
+                        2009, 2011-2012 Tom Goff <thomas.goff@boeing.com>
+                        2009 Tom Henderson <tomh@tomh.org>
+                        2009 Tomasz Pala <gotar@pld-linux.org>
+                        2009 Vasilis Tsiligiannis <b_tsiligiannis@silverton.gr>
+                        2009, 2011 heasley <heas@shrubbery.net>
+                        2010 Chris Hall <chris.hall@highwayman.com>
+                        2010 David BÉRARD <contact@davidberard.fr>
+                        2010-2015 David Lamparter <equinox@diac24.net>
+                        2010-2011, 2013-2015 Greg Troxel <gdt@ir.bbn.com>
+                        2010 Ivan Moskalyov <ether0@mail.ru>
+                        2010, 2014 Joakim Tjernlund <joakim.tjernlund@transmode.se>
+                        2010 Mathias Krause <Mathias.Krause@secunet.com>
+                        2010 Nico Golde <nion@debian.org>
+                        2010, 2015-2016 Paul Jakma <paul@jakma.org>
+                        2010-2013, 2016 Roman Hoog Antink <rha@open.ch>
+                        2010 Vladimir L Ivanov <wawa@yandex-team.ru>
+                        2011 Alexandre Chappuis <alc@open.ch>
+                        2011 Barry Friedman <barryf@google.com>
+                        2011 CROSS <info@codenomicon.com>
+                        2011 Chris Hall <chris.hall.list.highwayman.com>
+                        2011 Chris Luke <chrisy@flirble.org>
+                        2011 Christian Hammers <ch@debian.org>
+                        2011-2012 Dmitrij Tejblum <tejblum@yandex-team.ru>
+                        2011 Dmitry Popov <dp@highloadlab.com>
+                        2011 Dylan Hall <dylan@deedums.com>
+                        2011-2012 Fritz Reichmann <fritz@reichmann.nl>
+                        2011, 2014 Ingo Flaschberger <if@xip.at>
+                        2011 Jaroslav Fojtik <jafojtik@seznam.cz>
+                        2011 John Kemp <kemp@network-services.uoregon.edu>
+                        2011 Jon Andersson <jonirucoeith@gmail.com>
+                        2011-2012 Josh Bailey <joshb@google.com>
+                        2011 Oleg A. Arkhangelsky <sysoleg@yandex.ru>
+                        2011 Peter Pentchev <roam@ringlet.net>
+                        2011-2012 Peter Szilagyi <peszilagyi@gmail.com>
+                        2011 Robert Bays <rbays@vyatta.com>
+                        2011 Roderick Schertler <roderick@argon.org>
+                        2011 Sergey Y. Afonin <asy@altlinux.ru>
+                        2011 Thomas Ries <tries@gmx.net>
+                        2011-2012 Ulrich Weber <ulrich.weber@sophos.com>
+                        2011-2012 Vyacheslav Trushkin <me@dogonthesun.net>
+                        2011 Wataru Tanitsu <wataru@ate-mahoroba.jp>
+                        2011 YAMAMOTO Shigeru <shigeru@iij.ad.jp>
+                        2012-2013 Andrew Certain <certain@amazon.com>
+                        2012 Ang Way Chuang <wcang79@gmail.com>
+                        2012 Avneesh Sachdev <avneesh@opensourcerouting.org>
+                        2012, 2015 Balaji.G <balajig81@gmail.com>
+                        2012 Brad Smith <brad@comstyle.com>
+                        2012-2016 Christian Franke <chris@opensourcerouting.org>
+                        2012 Daniel Kozlowski <dkozlowski@sevone.com>
+                        2012-2016 David Lamparter <equinox@opensourcerouting.org>
+                        2012-2013 Doug VanLeuven <roamdad@sonic.net>
+                        2012, 2015 Everton Marques <everton.marques@gmail.com>
+                        2012 G.Balaji <balajig81@gmail.com>
+                        2012-2013 Hasso Tepper <hasso.tepper@gmail.com>
+                        2012 JR Rivers <jrrivers@cumulusnetworks.com>
+                        2012, 2014 Joachim Nilsson <troglobit@gmail.com>
+                        2012-2014 Jorge Boncompte [DTI2] <jorge@dti2.net>
+                        2012 Juliusz Chroboczek <jch@pps.jussieu.fr>
+                        2012 Matthias Ferdinand <mf@14v.de>
+                        2012 Matthieu Boutier <boutier@pps.jussieu.fr>
+                        2012 Nolan Leake <nolan@cumulusnetworks.com>
+                        2012 Phil Laverdiere <phil_laverdiere@securecomputing.com>
+                        2012 Renato Westphal <renatowestphal@gmail.com>
+                        2012 Serj Kalichev <serj.kalichev@gmail.com>
+                        2012 Subbaiah Venkata <svenkata@google.com>
+                        2012-2014 Vincent Bernat <bernat@luffy.cx>
+                        2013, 2016 Ayan Banerjee <ayan@cumulusnetworks.com>
+                        2013, 2016 Dinesh Dutt <ddutt@cumulusnetworks.com>
+                        2013-2016 Dinesh G Dutt <ddutt@cumulusnetworks.com>
+                        2013 Leonard Tracy <letracy@amazon.com>
+                        2013 Leonid Rosenboim <Leonid.Rosenboim@windriver.com>
+                        2013 Leonid Rosenboim <lrosenbo@wrs.com>
+                        2013 Matti-Oskari Leppänen <mongrelx@gmail.com>
+                        2013 Rakesh Garimella <rakesh.garimella@sophos.com>
+                        2013 Ulrich Weber <ulrich.weber@Sophos.com>
+                        2013 Vishal Kumar <vishal3.kumar@gmail.com>
+                        2013 高鹏 <gpstrive@gmail.com>
+                        2014-2016 Balaji <balajig81@gmail.com>
+                        2014, 2016 Boian Bonev <bbonev@ipacct.com>
+                        2014 Brett Ciphery <brett.ciphery@windriver.com>
+                        2014 John Glotzer <glotzer@amazon.com>
+                        2014 Ken Williams <kenneth.j.williams@intel.com>
+                        2014-2015 Lu Feng <lu.feng@6wind.com>
+                        2014 Michal Sekletar <msekleta@redhat.com>
+                        2014-2015 Milan Kocian <milon@wq.cz>
+                        2014 Olivier Cochard-Labbé <olivier@cochard.me>
+                        2014-2016 Paul Jakma <paul@opensourcerouting.org>
+                        2014, 2016 Pradosh Mohapatra <pmohapat@cumulusnetworks.com>
+                        2014 Remi Gacogne <rgacogne-github@coredump.fr>
+                        2014 Stephen Hemminger <stephen@networkplumber.org>
+                        2014 Sébastien Luttringer <seblu@seblu.net>
+                        2014 Vincent JARDIN <vincent.jardin@6wind.com>
+                        2014, 2016 Vipin Kumar <vipin@cumulusnetworks.com>
+                        2014 Vitaliy Senchyshyn <vsenchyshyn@toroki.com>
+                        2014 Yasuhiro Ohara <yasu@jaist.ac.jp>
+                        2015 Alexis Fasquel <alexis@pch.net>
+                        2015 Amritha Nambiar <amritha.nambiar@intel.com>
+                        2015 Brian Bennett <brian.bennett@joyent.com>
+                        2015-2016 Christian Franke <nobody@nowhere.ws>
+                        2015 Daniel Walton <dwalton76@gmail.com>
+                        2015-2016 Daniel Walton <dwalton@cumulusnetworks.com>
+                        2015-2016 Denil Vira <denil@cumulusnetworks.com>
+                        2015-2016 Donald Sharp <sharpd@cumulusnetworks.com>
+                        2015 Feng Lu <lu.feng@6wind.com>
+                        2015 Fernando Soto <fsoto@bluecatnetworks.com>
+                        2015 Hiroshi Yokoi <hiroshi.yokoi.0313@gmail.com>
+                        2015-2016 Jafar Al-Gharaibeh <jafar@atcorp.com>
+                        2015 Kaloyan Kovachev <kkovachev@varna.net>
+                        2015 Klemen Sladic <gosturnca@gmail.com>
+                        2015 Leonard Herve <leonard.herve@yahoo.fr>
+                        2015 Leonard Herve <leonardherve@yahoo.fr>
+                        2015-2016 Lou Berger <lberger@labn.net>
+                        2015-2016 Martin Winter <mwinter@opensourcerouting.org>
+                        2015 Michael Rossberg <michael.rossberg@tu-ilmenau.de>
+                        2015 Michael Zingg <michael.zingg@zhaw.ch>
+                        2015 Morgan Stewart <morgan@cumulusnetworks.com>
+                        2015 Nicolas Dichtel <nicolas.dichtel@6wind.com>
+                        2015-2016 Olivier Dugeon <olivier.dugeon@orange.com>
+                        2015-2016 Paul Jakma <paul.jakma@hpe.com>
+                        2015 Savannah SR#108542 <nbahr@atcorp.com>
+                        2015 User <emarques@gcc101.hackershells.com>
+                        2015 Vystoropskyi, Sergii <vistorop@amazon.com>
+                        2015 Wenjian Ma <ytmwjian@163.com>
+                        2015-2016 vivek <vivek@cumulusnetworks.com>
+                        2016 Andrej Ota <andrej@ota.si>
+                        2016 Avneesh Sachdev <avneesh@sproute.com>
+                        2016 Colin Petrie <cpetrie@ripe.net>
+                        2016 Evgeny Uskov <eu@qrator.net>
+                        2016 Gautam Kumar <gauta@amazon.com>
+                        2016 Igor Ryzhov <iryzhov@nfware.com>
+                        2016 James Li <jli@cumulusnetworks.com>
+                        2016 Jonathan Hart <jono@onlab.us>
+                        2016 Matthieu Boutier <boutier@pps.univ-paris-diderot.fr>
+                        2016 Pawel Wieczorkiewicz <pwieczorkiewicz@suse.de>
+                        2016 Philippe Guibert <philippe.guibert@6wind.com>
+                        2016 Piotr Chytła <pch@packetconsulting.pl>
+                        2016 Stas Nichiporovich <stas@iptel.by>
+                        2016 Udaya Shankara KS <shankara.k.s.u@gmail.com>
+                        2016 Vivek Venkatraman <vivek@cumulusnetworks.com>
+                        2016 boris yakubov <borisyakubov@ruggedcom.com>
+                        2016 kitty <khiruthigai.balasubramanian@hpe.com>
 License: GPL-2+
  This program is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
