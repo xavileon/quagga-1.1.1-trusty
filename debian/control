@@ -1,8 +1,7 @@
 Source: quagga
 Section: net
 Priority: optional
-Maintainer: Debian QA Group <packages@qa.debian.org>
-Uploaders: Florian Weimer <fw@debian.org>
+Maintainer: Scott Leggett <scott@sl.id.au>
 Build-Depends: autotools-dev,
                chrpath,
                debhelper (>= 9.0.0),
