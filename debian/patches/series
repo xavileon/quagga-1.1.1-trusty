@@ -5,3 +5,4 @@
 0005-Tweak-grammar-in-zebra-manpage-to-keep-lintian-happy.patch
 0006-Fix-spelling-errors-in-strings-flagged-by-lintian.patch
 0007-Fix-manpage-number-for-ospfclient.patch
+0008-Disable-debug-print-to-STDERR-on-vtysh-start.patch
