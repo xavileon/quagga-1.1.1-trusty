@@ -29,12 +29,4 @@ fi
 # add quagga user to the quaggavty group
 adduser quagga quaggavty
 
-# Do not change permissions when upgrading as it would violate policy.
-if [ "$1" = "install" ]; then
-  # Set permissions to allow quagga daemons and vtysh to write config files.
-  d=/etc/quagga/
-  chown quagga:quaggavty $d
-  chmod ug=rwx,o=rx $d
-fi
-
 #DEBHELPER#
