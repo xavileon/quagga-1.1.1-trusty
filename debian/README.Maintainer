@@ -20,3 +20,7 @@ Files that got an -pj suffix
 
 Files that were moved
 	/usr/sbin/*		-> /usr/lib/quagga/
+
+# Generate symbols
+dpkg-deb -x libfoo_<version>-<rev>.deb /tmp/libquagga
+dpkg-gensymbols -v1.1.0 -plibquagga0 -P/tmp/libquagga -Odebian/libquagga0.symbols
