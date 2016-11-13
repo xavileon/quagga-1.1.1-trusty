@@ -1,8 +1,5 @@
-usr/bin/vtysh
-usr/sbin/
-usr/lib/
-usr/share/doc/quagga/
-# install service files for systemd
-redhat/*.service /lib/systemd/system/
-# install environment config file for quagga
+# install environment config file for quagga suite
 debian/default/quagga /etc/default/
+redhat/zebra.service /lib/systemd/system/
+usr/bin/vtysh
+usr/sbin/zebra

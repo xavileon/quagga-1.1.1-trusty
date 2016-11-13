@@ -1,0 +1,2 @@
+redhat/bgpd.service /lib/systemd/system/
+usr/sbin/bgpd

@@ -1,0 +1,2 @@
+redhat/ospf6d.service /lib/systemd/system/
+usr/sbin/ospf6d

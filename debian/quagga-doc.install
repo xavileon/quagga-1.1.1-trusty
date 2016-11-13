@@ -1,3 +1,3 @@
-usr/share/info/
 # copy figures to where they're expected to be by info
 doc/fig*.png /usr/share/info/
+usr/share/info/

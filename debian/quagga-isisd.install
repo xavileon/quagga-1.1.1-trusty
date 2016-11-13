@@ -1,0 +1,2 @@
+redhat/isisd.service /lib/systemd/system/
+usr/sbin/isisd

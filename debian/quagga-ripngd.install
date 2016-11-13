@@ -1,0 +1,2 @@
+redhat/ripngd.service /lib/systemd/system/
+usr/sbin/ripngd

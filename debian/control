@@ -30,10 +30,19 @@ Package: quagga
 Architecture: any
 Depends:
  iproute2,
+ libquagga0 (= ${binary:Version}),
  ${misc:Depends},
  ${shlibs:Depends}
 Pre-Depends:
  adduser
+Recommends:
+ quagga-bgpd (= ${binary:Version}),
+ quagga-isisd (= ${binary:Version}),
+ quagga-ospf6d (= ${binary:Version}),
+ quagga-ospfd (= ${binary:Version}),
+ quagga-pimd (= ${binary:Version}),
+ quagga-ripd (= ${binary:Version}),
+ quagga-ripngd (= ${binary:Version})
 Conflicts:
  zebra,
  zebra-pj
@@ -42,7 +51,7 @@ Replaces:
  zebra-pj
 Suggests:
  snmpd
-Description: BGP/OSPF/RIP routing daemon
+Description: network routing daemons
  GNU Quagga is free software which manages TCP/IP based routing protocols.
  It supports BGP4, BGP4+, OSPFv2, OSPFv3, IS-IS, RIPv1, RIPv2, and RIPng as
  well as the IPv6 versions of these.
@@ -56,15 +65,179 @@ Description: BGP/OSPF/RIP routing daemon
  .
  It is more than a routed replacement, it can be used as a Route Server and
  a Route Reflector.
+ .
+ This package provides the zebra daemon, vtysh shell, and framework used by the
+ protocol-specific daemons.
 
 Package: quagga-doc
 Section: doc
 Architecture: all
 Depends:
- ${misc:Depends}
+ ${misc:Depends},
+ ${shlibs:Depends}
 Suggests:
  quagga
-Description: documentation files for quagga
- This package includes info files for quagga, a free software which manages
- TCP/IP based routing protocols.  It supports BGP4, BGP4+, OSPFv2, OSPFv3,
- IS-IS, RIPv1, RIPv2, and RIPng as well as the IPv6 versions of these.
+Description: network routing daemons (documentation)
+ GNU Quagga is free software which manages TCP/IP based routing protocols.
+ It supports BGP4, BGP4+, OSPFv2, OSPFv3, IS-IS, RIPv1, RIPv2, and RIPng as
+ well as the IPv6 versions of these.
+ .
+ This package contains the extended documentation.
+
+Package: libquagga0
+Section: libs
+Architecture: any
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends}
+Replaces:
+ quagga (<< 1.1.0-1)
+Breaks:
+ quagga (<< 1.1.0-1)
+Suggests:
+ quagga (= ${binary:Version})
+Description: network routing daemons (libraries)
+ GNU Quagga is free software which manages TCP/IP based routing protocols.
+ It supports BGP4, BGP4+, OSPFv2, OSPFv3, IS-IS, RIPv1, RIPv2, and RIPng as
+ well as the IPv6 versions of these.
+ .
+ This package contains the shared libraries.
+
+Package: quagga-dev
+Section: libdevel
+Architecture: any
+Depends:
+ libquagga0 (= ${binary:Version}),
+ ${misc:Depends},
+ ${shlibs:Depends}
+Replaces:
+ quagga (<< 1.1.0-1)
+Breaks:
+ quagga (<< 1.1.0-1)
+Description: network routing daemons (development files)
+ GNU Quagga is free software which manages TCP/IP based routing protocols.
+ It supports BGP4, BGP4+, OSPFv2, OSPFv3, IS-IS, RIPv1, RIPv2, and RIPng as
+ well as the IPv6 versions of these.
+ .
+ This package contains the development files (C headers and static libraries).
+
+Package: quagga-bgpd
+Architecture: any
+Depends:
+ quagga (= ${binary:Version}),
+ ${misc:Depends},
+ ${shlibs:Depends}
+Replaces:
+ quagga (<< 1.1.0-1)
+Breaks:
+ quagga (<< 1.1.0-1)
+Description: BGP4/BGP4+ routing daemon
+ GNU Quagga is free software which manages TCP/IP based routing protocols.
+ It supports BGP4, BGP4+, OSPFv2, OSPFv3, IS-IS, RIPv1, RIPv2, and RIPng as
+ well as the IPv6 versions of these.
+ .
+ This package contains the BGP4/BGP4+ routing daemon.
+
+Package: quagga-isisd
+Architecture: any
+Depends:
+ quagga (= ${binary:Version}),
+ ${misc:Depends},
+ ${shlibs:Depends}
+Replaces:
+ quagga (<< 1.1.0-1)
+Breaks:
+ quagga (<< 1.1.0-1)
+Description: IS-IS routing daemon
+ GNU Quagga is free software which manages TCP/IP based routing protocols.
+ It supports BGP4, BGP4+, OSPFv2, OSPFv3, IS-IS, RIPv1, RIPv2, and RIPng as
+ well as the IPv6 versions of these.
+ .
+ This package contains the IS-IS routing daemon.
+
+Package: quagga-ospf6d
+Architecture: any
+Depends:
+ quagga (= ${binary:Version}),
+ ${misc:Depends},
+ ${shlibs:Depends}
+Replaces:
+ quagga (<< 1.1.0-1)
+Breaks:
+ quagga (<< 1.1.0-1)
+Description: OSPF6 routing daemon
+ GNU Quagga is free software which manages TCP/IP based routing protocols.
+ It supports BGP4, BGP4+, OSPFv2, OSPFv3, IS-IS, RIPv1, RIPv2, and RIPng as
+ well as the IPv6 versions of these.
+ .
+ This package contains the OSPF6 routing daemon.
+
+Package: quagga-ospfd
+Architecture: any
+Depends:
+ quagga (= ${binary:Version}),
+ ${misc:Depends},
+ ${shlibs:Depends}
+Replaces:
+ quagga (<< 1.1.0-1)
+Breaks:
+ quagga (<< 1.1.0-1)
+Description: OSPF routing daemon
+ GNU Quagga is free software which manages TCP/IP based routing protocols.
+ It supports BGP4, BGP4+, OSPFv2, OSPFv3, IS-IS, RIPv1, RIPv2, and RIPng as
+ well as the IPv6 versions of these.
+ .
+ This package contains the OSPF routing daemon.
+
+Package: quagga-pimd
+Architecture: any
+Depends:
+ quagga (= ${binary:Version}),
+ ${misc:Depends},
+ ${shlibs:Depends}
+Replaces:
+ quagga (<< 1.1.0-1)
+Breaks:
+ quagga (<< 1.1.0-1)
+Conflicts:
+ pimd
+Description: PIM routing daemon
+ GNU Quagga is free software which manages TCP/IP based routing protocols.
+ It supports BGP4, BGP4+, OSPFv2, OSPFv3, IS-IS, RIPv1, RIPv2, and RIPng as
+ well as the IPv6 versions of these.
+ .
+ This package contains the PIM routing daemon.
+
+Package: quagga-ripd
+Architecture: any
+Depends:
+ quagga (= ${binary:Version}),
+ ${misc:Depends},
+ ${shlibs:Depends}
+Replaces:
+ quagga (<< 1.1.0-1)
+Breaks:
+ quagga (<< 1.1.0-1)
+Description: RIPv1 routing daemon
+ GNU Quagga is free software which manages TCP/IP based routing protocols.
+ It supports BGP4, BGP4+, OSPFv2, OSPFv3, IS-IS, RIPv1, RIPv2, and RIPng as
+ well as the IPv6 versions of these.
+ .
+ This package contains the RIPv1/RIPv2 routing daemon.
+
+Package: quagga-ripngd
+Architecture: any
+Depends:
+ quagga (= ${binary:Version}),
+ ${misc:Depends},
+ ${shlibs:Depends}
+Replaces:
+ quagga (<< 1.1.0-1)
+Breaks:
+ quagga (<< 1.1.0-1)
+Description: RIPng routing daemon
+ GNU Quagga is free software which manages TCP/IP based routing protocols.
+ It supports BGP4, BGP4+, OSPFv2, OSPFv3, IS-IS, RIPv1, RIPv2, and RIPng as
+ well as the IPv6 versions of these.
+ .
+ This package contains the RIPng routing daemon.
