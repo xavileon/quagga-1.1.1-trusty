@@ -5,7 +5,7 @@ Maintainer: Scott Leggett <scott@sl.id.au>
 Build-Depends:
  autotools-dev,
  chrpath,
- debhelper (>= 9.0.0),
+ debhelper (>= 10.0.0),
  dh-autoreconf,
  gawk,
  ghostscript,
