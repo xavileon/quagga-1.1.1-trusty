@@ -15,14 +15,14 @@ if ! getent group quagga >/dev/null; then
         addgroup --system quagga >/dev/null
 fi
 
-# creating quagga user if he isn't already there
+# creating quagga user if it isn't already there
 if ! getent passwd quagga >/dev/null; then
         adduser \
           --system \
           --ingroup quagga \
-          --home /var/run/quagga/ \
+          --home /run/quagga/ \
+          --no-create-home \
           --gecos "Quagga routing suite" \
-          --shell /bin/false \
           quagga  >/dev/null
 fi
 
@@ -31,51 +31,10 @@ adduser quagga quaggavty
 
 # Do not change permissions when upgrading as it would violate policy.
 if [ "$1" = "install" ]; then
-  # Logfiles are group readable in case users were put into the quagga group.
-  d=/var/log/quagga/
-    mkdir -p $d
-    chown -R quagga:quagga $d
-    chmod u=rwx,go=rx $d
-    find $d -type f -print0 | xargs -0 --no-run-if-empty   chmod u=rw,g=r,o=
-
-  # Strict permissions for the sockets.
-  d=/var/run/quagga/
-    mkdir -p $d
-    chown -R quagga:quagga $d
-    chmod u=rwx,go=rx $d
-    find $d -type f -print0 | xargs -0 --no-run-if-empty   chmod u=rw,go=
-
-  # Config files. Vtysh does not have access to the individual daemons config file
+  # Set permissions to allow quagga daemons and vtysh to write config files.
   d=/etc/quagga/
-    mkdir -p $d
-    chown quagga:quaggavty $d
-    chmod ug=rwx,o=rx $d
-    find $d -type f -print0 | xargs -0 --no-run-if-empty   chown quagga:quagga
-    find $d -type f -print0 | xargs -0 --no-run-if-empty   chmod u=rw,g=r,o=
-
-    # Exceptions for vtysh.
-    f=$d/vtysh.conf
-    if [ -f $f ]; then
-      chown quagga:quaggavty $f
-      chmod u=rw,g=r,o= $f
-    fi
-
-    # Exceptions for vtysh.
-    f=$d/Quagga.conf
-    if [ -f $d/Zebra.conf ]; then
-      mv $d/Zebra.conf $f
-    fi
-    if [ -f $f ]; then
-      chown quagga:quaggavty $f
-      chmod u=rw,g=r,o= $f
-    fi
-fi
-
-# No -q so that the filename is displayed. But on stderr due to debhelper.
-if grep ^smux /etc/quagga/*.conf >&2 2>/dev/null; then
-  echo "The currently used smux options will no longer work so remove them!" >&2
-  echo "See /usr/share/doc/quagga/README.Debian for more information." >&2
-  exit 1
+  chown quagga:quaggavty $d
+  chmod ug=rwx,o=rx $d
 fi
 
 #DEBHELPER#

@@ -30,7 +30,5 @@ override_dh_auto_build:
 
 override_dh_auto_install:
 	dh_auto_install
-	# cleaning up the info dir
-	#rm -f debian/tmp/usr/share/info/dir*
-	# cleaning .la files for lintian warning non-empty-dependency_libs-in-la-file
+	# clean .la files for lintian warning non-empty-dependency_libs-in-la-file
 	sed -i "/dependency_libs/ s/'.*'/''/" debian/tmp/usr/lib/**/*.la

@@ -4,13 +4,6 @@ set -e
 if [ -n "$DEBIAN_SCRIPT_DEBUG" ]; then set -v -x; DEBIAN_SCRIPT_TRACE=1; fi
 ${DEBIAN_SCRIPT_TRACE:+ echo "#42#DEBUG# RUNNING $0 $*"}
 
-if [ "$1" = "configure" ]; then
-    # Fix permissions for installed elements.
-    find /etc/quagga -type f -print0 | xargs -0 -I{} sh -c 'chown quagga:quagga {} ; chmod 640 {}'
-    find /var/log/quagga -type f -print0 | xargs -0 -I{} sh -c 'chown quagga:quagga {} ; chmod 640 {}'
-    find /var/run/quagga -type f -print0 | xargs -0 -I{} sh -c 'chown quagga:quagga {} ; chmod 600 {}'
-fi
-
 # This is most likely due to the answer "no" to the "really stop the server"
 # question in the prerm script.
 if [ "$1" = "abort-upgrade" ]; then
@@ -22,4 +15,3 @@ fi
 db_stop
 
 #DEBHELPER#
-

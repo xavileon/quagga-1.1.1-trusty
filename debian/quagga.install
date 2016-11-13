@@ -2,5 +2,7 @@ usr/bin/vtysh
 usr/sbin/
 usr/lib/
 usr/share/doc/quagga/
-# copy service files for systemd
+# install service files for systemd
 redhat/*.service /lib/systemd/system/
+# install environment config file for quagga
+debian/default/quagga /etc/default/
