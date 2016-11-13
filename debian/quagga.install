@@ -3,3 +3,4 @@ debian/default/quagga /etc/default/
 redhat/zebra.service /lib/systemd/system/
 usr/bin/vtysh
 usr/sbin/zebra
+usr/share/doc
