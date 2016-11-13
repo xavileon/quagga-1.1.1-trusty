@@ -12,7 +12,7 @@ quagga: no-symbols-control-file usr/lib/x86_64-linux-gnu/libospf.so.0.0.0
 quagga: no-symbols-control-file usr/lib/x86_64-linux-gnu/libfpm_pb.so.0.0.0
 quagga: no-symbols-control-file usr/lib/x86_64-linux-gnu/libquagga_pb.so.0.0.0
 
-quagga: spelling-error-in-binary usr/lib/quagga/pimd writen written
+quagga: spelling-error-in-binary usr/sbin/pimd writen written
 quagga: spelling-error-in-binary usr/lib/x86_64-linux-gnu/libospf.so.0.0.0 writen written
 quagga: spelling-error-in-binary usr/lib/x86_64-linux-gnu/libzebra.so.0.0.0 writen written
 

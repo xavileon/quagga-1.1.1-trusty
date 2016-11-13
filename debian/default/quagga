@@ -1,0 +1,9 @@
+# These options will be passed to the respective daemon on startup.
+ZEBRA_OPTS=" -A 127.0.0.1"
+BGPD_OPTS="  -A 127.0.0.1"
+ISISD_OPTS=" -A 127.0.0.1"
+OSPF6D_OPTS="-A ::1"
+OSPFD_OPTS=" -A 127.0.0.1"
+PIMD_OPTS="  -A 127.0.0.1"
+RIPD_OPTS="  -A 127.0.0.1"
+RIPNGD_OPTS="-A ::1"

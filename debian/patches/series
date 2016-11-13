@@ -5,3 +5,4 @@
 0005-Fix-spelling-errors-in-strings-flagged-by-lintian.patch
 0006-Fix-manpage-number-for-ospfclient.patch
 0007-Disable-debug-print-to-STDERR-on-vtysh-start.patch
+0008-Patch-.service-files-for-Debian.patch
