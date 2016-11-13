@@ -30,8 +30,6 @@ Package: quagga
 Architecture: any
 Depends:
  iproute2,
- logrotate (>= 3.2-11),
- lsb-base (>= 3.0-6),
  ${misc:Depends},
  ${shlibs:Depends}
 Pre-Depends:
