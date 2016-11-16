@@ -1,0 +1,5 @@
+/usr/lib/x86_64-linux-gnu/libfpm_pb.so.0 /usr/lib/x86_64-linux-gnu/libfpm_pb.so
+/usr/lib/x86_64-linux-gnu/libospf.so.0 /usr/lib/x86_64-linux-gnu/libospf.so
+/usr/lib/x86_64-linux-gnu/libospfapiclient.so.0 /usr/lib/x86_64-linux-gnu/libospfapiclient.so
+/usr/lib/x86_64-linux-gnu/libquagga_pb.so.0 /usr/lib/x86_64-linux-gnu/libquagga_pb.so
+/usr/lib/x86_64-linux-gnu/libzebra.so.0 /usr/lib/x86_64-linux-gnu/libzebra.so
