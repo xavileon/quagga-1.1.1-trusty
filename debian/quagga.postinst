@@ -4,21 +4,11 @@ set -e
 if [ -n "$DEBIAN_SCRIPT_DEBUG" ]; then set -v -x; DEBIAN_SCRIPT_TRACE=1; fi
 ${DEBIAN_SCRIPT_TRACE:+ echo "#42#DEBUG# RUNNING $0 $*"}
 
-# This is most likely due to the answer "no" to the "really stop the server"
-# question in the prerm script.
-if [ "$1" = "abort-upgrade" ]; then
-  exit 0
-fi
-
 if [ "$1" = "configure" ]; then
   # Set permissions to allow quagga daemons and vtysh to write config files.
   d=/etc/quagga/
   chown quagga:quaggavty $d
   chmod ug=rwx,o=rx $d
 fi
-
-. /usr/share/debconf/confmodule
-
-db_stop
 
 #DEBHELPER#
