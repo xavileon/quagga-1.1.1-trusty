@@ -1,9 +1,8 @@
 0001-82_vtysh__vtysh_user.c__pam.patch
 0002-80_vtysh__vtysh.c__privs.patch
-0003-50_vtysh__vtysh.conf.sample.patch
-0004-Tweak-grammar-in-zebra-manpage-to-keep-lintian-happy.patch
-0005-Fix-spelling-errors-in-strings-flagged-by-lintian.patch
-0006-Fix-manpage-number-for-ospfclient.patch
-0007-Disable-debug-print-to-STDERR-on-vtysh-start.patch
-0008-Patch-.service-files-for-Debian.patch
-0009-Add-correct-QUAGGA_VERSION-to-manpages.patch
+0003-Tweak-grammar-in-zebra-manpage-to-keep-lintian-happy.patch
+0004-Fix-spelling-errors-in-strings-flagged-by-lintian.patch
+0005-Fix-manpage-number-for-ospfclient.patch
+0006-Disable-debug-print-to-STDERR-on-vtysh-start.patch
+0007-Patch-.service-files-for-Debian.patch
+0008-Add-correct-QUAGGA_VERSION-to-manpages.patch
