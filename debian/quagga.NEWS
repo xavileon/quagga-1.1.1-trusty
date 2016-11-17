@@ -1,0 +1,17 @@
+quagga (1.1.0-1) unstable; urgency=low
+
+  The quagga package has been split into individual routing daemon packages.
+  All are recommended by the quagga package, so with recommends on,
+  `apt-get install quagga` effectively installs the same thing it did before.
+
+  quagga now uses systemd in order to avoid a lot of problems with the old
+  init scripts and to bring it closer to upstream. Existing daemon
+  configuration will work, but /etc/quagga/debian.conf is no longer used, and
+  "watchquagga" has been removed from the package.
+
+  The debconf question that allowed aborting package upgrades has also been
+  removed.
+
+  Please review /usr/share/doc/quagga/README.Debian for more information.
+
+ -- Scott Leggett <scott@sl.id.au>  Sat, 19 Nov 2016 23:51:34 +1100
