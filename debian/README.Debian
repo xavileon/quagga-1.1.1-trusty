@@ -1,14 +1,44 @@
 * SAFETY MEASURES:
 ==================
 
-Please consider setting this package "on hold" by typing
-    echo "quagga hold" | dpkg --set-selections
-and verifying this using
-    dpkg --get-selections | grep 'hold$'
+The quagga package used to have a debconf option to abort during the upgrade
+process to avoid inadvertently dropping routes and/or causing BGP flaps. This
+has been removed as it was a violation of Debian Policy. Instead, please
+consider setting this package "on hold" after installation by typing:
+
+    # apt-mark hold quagga
+
+And verifying this using:
+
+    $ apt-mark showhold
 
 Setting a package "on hold" means that it will not automatically be upgraded.
 Instead apt-get only displays a warning saying that a new version would be
 available forcing you to explicitly type "apt-get install quagga" to upgrade it.
+
+
+* Daemon Selection and Control:
+===============================
+
+Each routing daemon can be brought up or down independently. E.g.
+
+    # systemctl start bgpd
+
+This will also automatically start the `zebra` service, which is a dependency
+of all the quagga routing daemons. Restart an individual daemon in the usual
+way:
+
+    # systemctl restart bgpd
+
+And restart or stop all daemons by targeting the `zebra` dependency:
+
+    # systemctl restart zebra
+    # systemctl stop zebra
+
+IMPORTANT NOTE: Before starting (and so, by extension, on restart), the `zebra`
+service will flush all existing zebra/quagga routes from the kernel routing
+table. To override this behaviour, copy /lib/systemd/system/zebra.service to
+/etc/systemd/system/zebra.service, and remove the "flush" line.
 
 
 * What is quagga?
@@ -62,29 +92,6 @@ build Quagga yourself with SNMP with
 Just distributing it in binary form, linked against OpenSSL, is forbidden.
 
 
-* Daemon selection:
-===================
-
-The Debian package uses /etc/quagga/daemons to tell the
-initscript which daemons to start. It's in the format
-<daemon>=<yes|no|priority>
-with no spaces (it's simply source-d into the initscript).
-Default is not to start anything, since it can hose your
-system's routing table if not set up properly.
-
-Priorities were suggested by Dancer <dancer@zeor.simegen.com>.
-They're used to start the Quagga daemons in more than one step
-(for example start one or two at network initialization and the
-rest later). The number of Quagga daemons being small, priorities
-must be between 1 and 9, inclusive (or the initscript has to be
-changed). /etc/init.d/quagga then can be started as
-
-/etc/init.d/quagga <start|stop|restart|<priority>>
-
-where priority 0 is the same as 'stop', priority 10 or 'start'
-means 'start all'
-
-
 * Error message "privs_init: initial cap_set_proc failed":
 ==========================================================
 
@@ -106,4 +113,13 @@ See message #4525 from 2005-05-09 in the quagga-users mailing list.
 ===========================
 
 Check /etc/pam.d/quagga, it probably denies access to your user. The passwords
-configured in /etc/quagga/Quagga.conf are only for telnet access.
+configured in /etc/quagga/*.conf are only for telnet access.
+
+
+* /etc/quagga/Quagga.conf has no effect:
+========================================
+
+Quagga in Debian ignores the integrated configuration file by default (upstream
+recommends against using it at all). If you want to use it anyway, please copy
+the relevant .service files from /lib/systemd/system/ into /etc/systemd/system/
+and patch out "-f *.conf".

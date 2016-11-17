@@ -1,9 +1,4 @@
 #
-# To check if the patches still apply on new upstream versions:
-#
-for i in debian/patches/*.diff; do echo -e "#\n# $i\n#"; patch --fuzz=3 --dry-run -p1 < $i; done
-
-#
 # Filename transition from zebra to quagga
 #
 
@@ -24,3 +19,11 @@ Files that were moved
 # Generate symbols
 dpkg-deb -x libfoo_<version>-<rev>.deb /tmp/libquagga
 dpkg-gensymbols -v1.1.0 -plibquagga0 -P/tmp/libquagga -Odebian/libquagga0.symbols
+
+# set up repository after clone
+git remote add upstream git://git.savannah.nongnu.org/quagga.git
+git branch -u upstream/master upstream
+
+# verify upstream tags
+gpg2 --recv 0x909B071D17A4A64B
+git tag -v quagga-1.1.0
