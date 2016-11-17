@@ -1,0 +1,122 @@
+From: Scott Leggett <scott@sl.id.au>
+Date: Thu, 17 Nov 2016 21:55:36 +1100
+Subject: Add correct QUAGGA_VERSION to manpages.
+
+---
+ doc/Makefile.am | 7 +++++++
+ doc/bgpd.8      | 2 +-
+ doc/isisd.8     | 2 +-
+ doc/ospf6d.8    | 2 +-
+ doc/ospfd.8     | 2 +-
+ doc/pimd.8      | 2 +-
+ doc/ripd.8      | 2 +-
+ doc/ripngd.8    | 2 +-
+ doc/vtysh.1     | 2 +-
+ doc/zebra.8     | 2 +-
+ 10 files changed, 16 insertions(+), 9 deletions(-)
+
+diff --git a/doc/Makefile.am b/doc/Makefile.am
+index 42af37c..df4215a 100644
+--- a/doc/Makefile.am
++++ b/doc/Makefile.am
+@@ -117,3 +117,10 @@ EXTRA_DIST = BGP-TypeCode draft-zebra-00.ms draft-zebra-00.txt \
+ 
+ draft-zebra-00.txt: draft-zebra-00.ms
+ 	groff -T ascii -ms $< > $@
++
++.PHONY: versioned_manpages
++versioned_manpages: $(man_MANS)
++	for man in $^; do \
++		m4 -DQUAGGA_VERSION=$(QUAGGA_VERSION) $$man | sponge $$man; \
++		done
++
+diff --git a/doc/bgpd.8 b/doc/bgpd.8
+index 1a873b4..fe9b26b 100644
+--- a/doc/bgpd.8
++++ b/doc/bgpd.8
+@@ -1,4 +1,4 @@
+-.TH BGPD 8 "25 November 2004" "Quagga BGPD daemon" "Version 0.97.3"
++.TH BGPD 8 "25 November 2004" "Quagga BGPD daemon" "Version QUAGGA_VERSION"
+ .SH NAME
+ bgpd \- a BGPv4, BGPv4\+, BGPv4\- routing engine for use with Quagga routing
+ software
+diff --git a/doc/isisd.8 b/doc/isisd.8
+index 84e6cf5..c014762 100644
+--- a/doc/isisd.8
++++ b/doc/isisd.8
+@@ -1,4 +1,4 @@
+-.TH IS-IS 8 "25 November 2004" "Quagga IS-IS daemon" "Version 0.97.3"
++.TH IS-IS 8 "25 November 2004" "Quagga IS-IS daemon" "Version QUAGGA_VERSION"
+ .SH NAME
+ isisd \- an IS-IS routing engine for use with Quagga routing software.
+ .SH SYNOPSIS
+diff --git a/doc/ospf6d.8 b/doc/ospf6d.8
+index 0643226..9446db1 100644
+--- a/doc/ospf6d.8
++++ b/doc/ospf6d.8
+@@ -1,4 +1,4 @@
+-.TH OSPF6D 8 "25 November 2004" "Quagga OSPFv3 daemon" "Version 0.97.3"
++.TH OSPF6D 8 "25 November 2004" "Quagga OSPFv3 daemon" "Version QUAGGA_VERSION"
+ .SH NAME
+ ospf6d \- an OSPFv3 routing engine for use with Quagga routing software.
+ .SH SYNOPSIS
+diff --git a/doc/ospfd.8 b/doc/ospfd.8
+index 8c819cf..626eab2 100644
+--- a/doc/ospfd.8
++++ b/doc/ospfd.8
+@@ -1,4 +1,4 @@
+-.TH OSPFD 8 "25 November 2004" "Quagga OSPFv2 daemon" "Version 0.97.3"
++.TH OSPFD 8 "25 November 2004" "Quagga OSPFv2 daemon" "Version QUAGGA_VERSION"
+ .SH NAME
+ ospfd \- an OSPFv2 routing engine for use with Quagga routing software.
+ .SH SYNOPSIS
+diff --git a/doc/pimd.8 b/doc/pimd.8
+index 0dd170a..7c89914 100644
+--- a/doc/pimd.8
++++ b/doc/pimd.8
+@@ -1,4 +1,4 @@
+-.TH PIM 8 "10 December 2008" "Quagga PIM daemon" "Version 0.99.11"
++.TH PIM 8 "10 December 2008" "Quagga PIM daemon" "Version QUAGGA_VERSION"
+ .SH NAME
+ pimd \- a PIM routing for use with Quagga Routing Suite.
+ .SH SYNOPSIS
+diff --git a/doc/ripd.8 b/doc/ripd.8
+index 8fa9bf2..d506959 100644
+--- a/doc/ripd.8
++++ b/doc/ripd.8
+@@ -1,4 +1,4 @@
+-.TH RIPD 8 "25 November 2004" "Quagga RIP daemon" "Version 0.97.3"
++.TH RIPD 8 "25 November 2004" "Quagga RIP daemon" "Version QUAGGA_VERSION"
+ .SH NAME
+ ripd \- a RIP routing engine for use with Quagga routing software.
+ .SH SYNOPSIS
+diff --git a/doc/ripngd.8 b/doc/ripngd.8
+index 6e63dc2..c336c89 100644
+--- a/doc/ripngd.8
++++ b/doc/ripngd.8
+@@ -1,4 +1,4 @@
+-.TH RIPNGD 8 "25 November 2004" "Quagga RIPNG daemon" "Version 0.97.3"
++.TH RIPNGD 8 "25 November 2004" "Quagga RIPNG daemon" "Version QUAGGA_VERSION"
+ .SH NAME
+ ripngd \- a RIPNG routing engine for use with Quagga routing software.
+ .SH SYNOPSIS
+diff --git a/doc/vtysh.1 b/doc/vtysh.1
+index a2afa9f..ff672d0 100644
+--- a/doc/vtysh.1
++++ b/doc/vtysh.1
+@@ -1,4 +1,4 @@
+-.TH VTYSH 1 "27 July 2006" "Quagga VTY shell" "Version 0.96.5"
++.TH VTYSH 1 "27 July 2006" "Quagga VTY shell" "Version QUAGGA_VERSION"
+ .SH NAME
+ vtysh \- a integrated shell for Quagga routing software
+ .SH SYNOPSIS
+diff --git a/doc/zebra.8 b/doc/zebra.8
+index 1c4fc63..69ae3b7 100644
+--- a/doc/zebra.8
++++ b/doc/zebra.8
+@@ -1,4 +1,4 @@
+-.TH ZEBRA 8 "25 November 2004" "Zebra daemon" "Version 0.97.3"
++.TH ZEBRA 8 "25 November 2004" "Zebra daemon" "Version QUAGGA_VERSION"
+ .SH NAME
+ zebra \- a routing manager for use with associated Quagga components.
+ .SH SYNOPSIS

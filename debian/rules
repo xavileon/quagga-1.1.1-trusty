@@ -3,6 +3,10 @@
 export DH_VERBOSE=1
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
+# Set binary version
+include /usr/share/dpkg/pkg-info.mk
+export QUAGGA_VERSION = $(DEB_VERSION_UPSTREAM)
+
 %:
 	dh $@ --parallel --with autotools_dev --list-missing
 
@@ -26,7 +30,7 @@ override_dh_auto_configure:
 override_dh_auto_build:
 	dh_auto_build
 	# build useful docs
-	dh_auto_build -- -C doc/ quagga.pdf draft-zebra-00.txt
+	dh_auto_build -- -C doc/ quagga.pdf draft-zebra-00.txt versioned_manpages
 
 override_dh_auto_install:
 	dh_auto_install

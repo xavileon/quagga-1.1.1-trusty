@@ -17,6 +17,7 @@ Build-Depends:
  libpcre3-dev,
  libreadline-dev,
  libsnmp-dev,
+ moreutils,
  pkg-config,
  po-debconf,
  texinfo (>= 4.7),
