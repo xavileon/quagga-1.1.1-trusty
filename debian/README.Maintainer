@@ -27,3 +27,7 @@ git branch -u upstream/master upstream
 # verify upstream tags
 gpg2 --recv 0x909B071D17A4A64B
 git tag -v quagga-1.1.0
+
+# run tests
+# NOTE: I use a VM; for tests to run, need sudo installed and ssh key access.
+autopkgtest -d ../build-area/quagga_1.1.0-1_amd64.changes -- ssh -H root@192.168.122.119

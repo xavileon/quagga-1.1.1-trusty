@@ -2,26 +2,34 @@
 #---------------
 # Testing quagga
 #---------------
-set -e
+set -eu
 
-# modify config file to enable all daemons and copy config files
-CONFIG_FILE=/etc/quagga/daemons
-DAEMONS=("zebra" "bgpd" "ospfd" "ospf6d" "ripd" "ripngd" "isisd")
+DAEMONS=("bgpd" "isisd" "ospf6d" "ospfd" "pimd" "ripd" "ripngd")
 
-for daemon in "${DAEMONS[@]}"
+# configure
+for daemon in "${DAEMONS[@]}" zebra
 do
-    sed -i -e "s/${daemon}=no/${daemon}=yes/g" $CONFIG_FILE
-    cp /usr/share/doc/quagga/examples/${daemon}.conf.sample /etc/quagga/${daemon}.conf
+    cp /usr/share/doc/quagga/examples/${daemon}.conf.sample \
+      /etc/quagga/${daemon}.conf
 done
 
-# reload quagga
-/etc/init.d/quagga restart > /dev/null 2>&1
-
-# check daemons
+# start (no zebra - it's brought up automaticall as a dependency)
 for daemon in "${DAEMONS[@]}"
 do
-    echo -n "check $daemon  -  "
-    if pidof -x $daemon > /dev/null; then
+    systemctl start ${daemon}
+done
+
+# reload quagga by restarting zebra - dependent daemons will restart.
+systemctl restart zebra
+
+# wait for things to settle
+sleep 5
+
+# check daemons
+for daemon in "${DAEMONS[@]}" zebra
+do
+    echo -n "check ${daemon}  -  "
+    if systemctl -q is-active ${daemon}; then
         echo "${daemon} OK"
     else
         echo "ERROR: ${daemon} IS NOT RUNNING"
