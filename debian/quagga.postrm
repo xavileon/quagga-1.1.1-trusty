@@ -4,20 +4,11 @@ set -e
 if [ -n "$DEBIAN_SCRIPT_DEBUG" ]; then set -v -x; DEBIAN_SCRIPT_TRACE=1; fi
 ${DEBIAN_SCRIPT_TRACE:+ echo "#42#DEBUG# RUNNING $0 $*"}
 
-if [ "$1" = "configure" ]; then
-  # Set permissions to allow quagga daemons and vtysh to write config files.
-  d=/etc/quagga/
-  chown quagga:quaggavty $d
-  chmod ug=rwx,o=rx $d
-fi
-
 # remove old package files if they still exist (in preinst, postinst, postrm -
 # see manpage for dpkg-mainscript-helper)
 conffiles=(/etc/{{init.d,logrotate.d}/quagga,quagga/{debian.conf,daemons}})
 for conffile in ${conffiles[*]}; do
   dpkg-maintscript-helper rm_conffile $conffile 1.1.0-1~ quagga -- "$@"
 done
-# remove symlinks to /etc/init.d/quagga from runlevels
-update-rc.d -f quagga remove
 
 #DEBHELPER#

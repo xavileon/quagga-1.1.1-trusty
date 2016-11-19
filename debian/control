@@ -35,7 +35,8 @@ Depends:
  ${misc:Depends},
  ${shlibs:Depends}
 Pre-Depends:
- adduser
+ adduser,
+ dpkg (>= 1.17.14)
 Recommends:
  quagga-bgpd (= ${binary:Version}),
  quagga-isisd (= ${binary:Version}),

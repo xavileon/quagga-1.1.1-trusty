@@ -29,4 +29,11 @@ fi
 # add quagga user to the quaggavty group
 adduser quagga quaggavty
 
+# remove old package files if they still exist (in preinst, postinst, postrm -
+# see manpage for dpkg-mainscript-helper)
+conffiles=(/etc/{{init.d,logrotate.d}/quagga,quagga/{debian.conf,daemons}})
+for conffile in ${conffiles[*]}; do
+  dpkg-maintscript-helper rm_conffile $conffile 1.1.0-1~ quagga -- "$@"
+done
+
 #DEBHELPER#
