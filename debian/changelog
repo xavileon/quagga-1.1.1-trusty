@@ -1,3 +1,33 @@
+quagga (1.1.0-1) unstable; urgency=low
+
+  * New upstream release (Closes: #774760, #516226, #830515)
+  * Import packaging from the last debian release 1.0.20160315-3.
+  * Remove dump_fix.patch applied upstream.
+  * Remove patch which is no longer relevant.
+  * Remove patch for CVE-2016-1245 fixed upstream.
+  * Rely on automatic -dbgsym package rather than deprecated -dbg.
+  * Remove deprecated XS-testsuite header in debian/control.
+  * Remove template comment from debian/watch.
+  * Add patch to fix spelling and grammar errors.
+  * Register quagga-doc with doc-base.
+  * Add patch to fix ospfclient(8) manpage numbering.
+  * Added patch to avoid debug print statements on vtysh startup.
+  * Adopt package, set myself as maintainer (Closes: #836418).
+  * Add quagga user to quaggavty group in preinst.
+  * Drop patch for Debian pager default in vtysh (Closes: #788243).
+  * Update debian/copyright.
+  * Bump compat level to 10 (Closes: #534833).
+  * Use systemd .service files rather than init.d scripts (Closes: #678946,
+    #805840, #839819, #412483).
+  * Split quagga package out into multiple packages (Closes: #705306).
+  * Remove debconf question which left packages in inconsistent state.
+  * Add patch for manpage versioning.
+  * Update README.Debian, README.Maintainer.
+  * Removed patch on vtysh.conf.
+  * Add NEWS.Debian about the major changes to the package.
+
+ -- Scott Leggett <scott@sl.id.au>  Sat, 19 Nov 2016 23:51:34 +1100
+
 quagga (1.0.20160315-3) unstable; urgency=high
 
   * Apply patch to fix CVE-2016-1245.  Closes: #841162.
