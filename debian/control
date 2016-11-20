@@ -135,7 +135,7 @@ Description: network routing daemons (libraries)
  .
  This package contains the shared libraries.
 
-Package: quagga-dev
+Package: libquagga-dev
 Section: libdevel
 Architecture: any
 Depends:
