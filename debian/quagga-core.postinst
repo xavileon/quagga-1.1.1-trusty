@@ -3,9 +3,7 @@ set -eu
 
 if [ "$1" = "configure" ]; then
   # Set permissions to allow quagga daemons and vtysh to write config files.
-  d=/etc/quagga/
-  chown quagga:quaggavty $d
-  chmod ug=rwx,o=rx $d
+  dpkg-statoverride --add --update quagga quaggavty 775 /etc/quagga
 fi
 
 # remove old package files if they still exist (in preinst, postinst, postrm -
