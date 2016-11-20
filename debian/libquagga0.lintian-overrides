@@ -1,4 +1,1 @@
-libquagga0: spelling-error-in-copyright Ang And
-libquagga0: spelling-error-in-binary usr/lib/x86_64-linux-gnu/libospf.so.0.0.0 writen written
-libquagga0: spelling-error-in-binary usr/lib/x86_64-linux-gnu/libzebra.so.0.0.0 writen written
 libquagga0: package-name-doesnt-match-sonames libfpm-pb0 libospf0 libospfapiclient0 libquagga-pb0 libzebra0
