@@ -1,0 +1,6 @@
+debian/etc/default/quagga /etc/default/
+debian/etc/pam.d/quagga /etc/pam.d/
+redhat/zebra.service /lib/systemd/system/
+usr/bin/vtysh
+usr/sbin/zebra
+usr/share/doc/quagga/* /usr/share/doc/quagga-core/

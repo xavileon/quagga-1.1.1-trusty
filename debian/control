@@ -30,6 +30,36 @@ Homepage: http://www.quagga.net/
 Package: quagga
 Architecture: any
 Depends:
+ quagga-bgpd (= ${binary:Version}),
+ quagga-core (= ${binary:Version}),
+ quagga-isisd (= ${binary:Version}),
+ quagga-ospf6d (= ${binary:Version}),
+ quagga-ospfd (= ${binary:Version}),
+ quagga-pimd (= ${binary:Version}),
+ quagga-ripd (= ${binary:Version}),
+ quagga-ripngd (= ${binary:Version}),
+ ${misc:Depends},
+ ${shlibs:Depends}
+Description: network routing daemons (metapackage)
+ GNU Quagga is free software which manages TCP/IP based routing protocols.
+ It supports BGP4, BGP4+, OSPFv2, OSPFv3, IS-IS, RIPv1, RIPv2, and RIPng as
+ well as the IPv6 versions of these.
+ .
+ As the predecessor Zebra has been considered orphaned, the Quagga project
+ has been formed by members of the zebra mailing list and the former
+ zebra-pj project to continue developing.
+ .
+ Quagga uses threading if the kernel supports it, but can also run on
+ kernels that do not support threading. Each protocol has its own daemon.
+ .
+ It is more than a routed replacement, it can be used as a Route Server and
+ a Route Reflector.
+ .
+ This metapackage depends on the full suite of Quagga routing daemons.
+
+Package: quagga-core
+Architecture: any
+Depends:
  iproute2,
  libquagga0 (= ${binary:Version}),
  ${misc:Depends},
@@ -53,7 +83,7 @@ Replaces:
  zebra-pj
 Suggests:
  snmpd
-Description: network routing daemons
+Description: network routing daemons (core abstraction layer)
  GNU Quagga is free software which manages TCP/IP based routing protocols.
  It supports BGP4, BGP4+, OSPFv2, OSPFv3, IS-IS, RIPv1, RIPv2, and RIPng as
  well as the IPv6 versions of these.
@@ -126,7 +156,7 @@ Description: network routing daemons (development files)
 Package: quagga-bgpd
 Architecture: any
 Depends:
- quagga (= ${binary:Version}),
+ quagga-core (= ${binary:Version}),
  ${misc:Depends},
  ${shlibs:Depends}
 Replaces:
@@ -143,7 +173,7 @@ Description: BGP4/BGP4+ routing daemon
 Package: quagga-isisd
 Architecture: any
 Depends:
- quagga (= ${binary:Version}),
+ quagga-core (= ${binary:Version}),
  ${misc:Depends},
  ${shlibs:Depends}
 Replaces:
@@ -160,7 +190,7 @@ Description: IS-IS routing daemon
 Package: quagga-ospf6d
 Architecture: any
 Depends:
- quagga (= ${binary:Version}),
+ quagga-core (= ${binary:Version}),
  ${misc:Depends},
  ${shlibs:Depends}
 Replaces:
@@ -177,7 +207,7 @@ Description: OSPF6 routing daemon
 Package: quagga-ospfd
 Architecture: any
 Depends:
- quagga (= ${binary:Version}),
+ quagga-core (= ${binary:Version}),
  ${misc:Depends},
  ${shlibs:Depends}
 Replaces:
@@ -194,7 +224,7 @@ Description: OSPF routing daemon
 Package: quagga-pimd
 Architecture: any
 Depends:
- quagga (= ${binary:Version}),
+ quagga-core (= ${binary:Version}),
  ${misc:Depends},
  ${shlibs:Depends}
 Replaces:
@@ -213,7 +243,7 @@ Description: PIM routing daemon
 Package: quagga-ripd
 Architecture: any
 Depends:
- quagga (= ${binary:Version}),
+ quagga-core (= ${binary:Version}),
  ${misc:Depends},
  ${shlibs:Depends}
 Replaces:
@@ -230,7 +260,7 @@ Description: RIPv1 routing daemon
 Package: quagga-ripngd
 Architecture: any
 Depends:
- quagga (= ${binary:Version}),
+ quagga-core (= ${binary:Version}),
  ${misc:Depends},
  ${shlibs:Depends}
 Replaces:
