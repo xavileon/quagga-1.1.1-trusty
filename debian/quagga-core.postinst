@@ -6,12 +6,6 @@ if [ "$1" = "configure" ]; then
   dpkg-statoverride --add --update quagga quaggavty 775 /etc/quagga
 fi
 
-# remove old package files if they still exist (in preinst, postinst, postrm -
-# see manpage for dpkg-mainscript-helper)
-conffiles=(/etc/{{init.d,logrotate.d}/quagga,quagga/{debian.conf,daemons}})
-for conffile in ${conffiles[*]}; do
-  dpkg-maintscript-helper rm_conffile $conffile 1.1.0-1~ quagga -- "$@"
-done
 # remove symlinks to /etc/init.d/quagga from runlevels
 update-rc.d -f quagga remove
 
