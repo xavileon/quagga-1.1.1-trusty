@@ -25,6 +25,8 @@ Build-Depends:
  texlive-generic-recommended,
  texlive-latex-base
 Standards-Version: 3.9.8
+Vcs-git: https://gitlab.com/smlx/quagga.git
+Vcs-browser: https://gitlab.com/smlx/quagga
 Homepage: http://www.quagga.net/
 
 Package: quagga
