@@ -1,4 +1,3 @@
-debian/etc/default/quagga /etc/default/
 debian/etc/pam.d/quagga /etc/pam.d/
 redhat/zebra.service /lib/systemd/system/
 usr/bin/vtysh
