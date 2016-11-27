@@ -69,14 +69,6 @@ Depends:
 Pre-Depends:
  adduser,
  dpkg (>= 1.17.14)
-Recommends:
- quagga-bgpd (= ${binary:Version}),
- quagga-isisd (= ${binary:Version}),
- quagga-ospf6d (= ${binary:Version}),
- quagga-ospfd (= ${binary:Version}),
- quagga-pimd (= ${binary:Version}),
- quagga-ripd (= ${binary:Version}),
- quagga-ripngd (= ${binary:Version})
 Conflicts:
  zebra,
  zebra-pj
@@ -84,6 +76,13 @@ Replaces:
  zebra,
  zebra-pj
 Suggests:
+ quagga-bgpd (= ${binary:Version}),
+ quagga-isisd (= ${binary:Version}),
+ quagga-ospf6d (= ${binary:Version}),
+ quagga-ospfd (= ${binary:Version}),
+ quagga-pimd (= ${binary:Version}),
+ quagga-ripd (= ${binary:Version}),
+ quagga-ripngd (= ${binary:Version}),
  snmpd
 Description: network routing daemons (core abstraction layer)
  GNU Quagga is free software which manages TCP/IP based routing protocols.
