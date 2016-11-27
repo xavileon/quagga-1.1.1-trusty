@@ -77,10 +77,7 @@ licence that Quagga is distributed under. For more explanation read:
 Updating the licence to explecitly allow linking against OpenSSL
 would requite the affirmation of all people that ever contributed
 a significant part to Zebra or Quagga and thus are the collective
-"copyright holder". That's too much work. Using a shrinked down 
-version of NetSNMP without OpenSSL or convincing the NetSNMP people
-to change to GnuTLS are maybe good solutions but not reachable
-during the last days before the Sarge release :-(
+"copyright holder". That's too much work.
 
         *BUT*
 
