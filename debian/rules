@@ -7,6 +7,9 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 include /usr/share/dpkg/pkg-info.mk
 export QUAGGA_VERSION = $(DEB_VERSION_UPSTREAM)
 
+# Filter VCS files
+export DH_ALWAYS_EXCLUDE = .gitignore
+
 %:
 	dh $@ --parallel --with autotools_dev --list-missing
 
