@@ -9,7 +9,7 @@ DAEMONS=("bgpd" "isisd" "ospf6d" "ospfd" "pimd" "ripd" "ripngd")
 # configure
 for daemon in "${DAEMONS[@]}" zebra
 do
-    cp /usr/share/doc/quagga/examples/${daemon}.conf.sample \
+    cp /usr/share/doc/quagga-core/examples/${daemon}.conf.sample \
       /etc/quagga/${daemon}.conf
 done
 
