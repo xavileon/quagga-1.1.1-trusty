@@ -1,3 +1,10 @@
+quagga (1.1.0-2) unstable; urgency=low
+
+  * Fix autopkgtests.
+  * Check for existing dpkg-statoverride on /etc/quagga (Closes: #847355).
+
+ -- Scott Leggett <scott@sl.id.au>  Fri, 09 Dec 2016 22:56:55 +1100
+
 quagga (1.1.0-1) unstable; urgency=low
 
   * New upstream release (Closes: #774760, #516226, #830515)
