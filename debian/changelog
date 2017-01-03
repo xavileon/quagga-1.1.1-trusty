@@ -1,3 +1,9 @@
+quagga (1.1.0-3) unstable; urgency=low
+
+  * Update .service file patch (Closes: #849953).
+
+ -- Scott Leggett <scott@sl.id.au>  Tue, 03 Jan 2017 22:07:12 +0800
+
 quagga (1.1.0-2) unstable; urgency=low
 
   * Fix autopkgtests.
