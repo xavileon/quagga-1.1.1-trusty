@@ -1,3 +1,12 @@
+quagga (1.1.1-1) unstable; urgency=low
+
+  * SECURITY:
+    - New upstream bugfix release, fixes CVE-2017-5495 (Closes: #852454).
+  * Remove patch disabling debug print statements; fixed upstream.
+  * Update libquagga0.symbols for libzebra SONAME bump.
+
+ -- Scott Leggett <scott@sl.id.au>  Fri, 27 Jan 2017 10:48:50 +1100
+
 quagga (1.1.0-3) unstable; urgency=low
 
   * Update .service file patch (Closes: #849953).
