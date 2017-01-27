@@ -3,6 +3,5 @@
 0003-Tweak-grammar-in-zebra-manpage-to-keep-lintian-happy.patch
 0004-Fix-spelling-errors-in-strings-flagged-by-lintian.patch
 0005-Fix-manpage-number-for-ospfclient.patch
-0006-Disable-debug-print-to-STDERR-on-vtysh-start.patch
 0007-Patch-.service-files-for-Debian.patch
 0008-Add-correct-QUAGGA_VERSION-to-manpages.patch
