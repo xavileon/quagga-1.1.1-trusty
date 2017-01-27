@@ -1,1 +1,1 @@
-libquagga0: package-name-doesnt-match-sonames libfpm-pb0 libospf0 libospfapiclient0 libquagga-pb0 libzebra0
+libquagga0: package-name-doesnt-match-sonames libfpm-pb0 libospf0 libospfapiclient0 libquagga-pb0 libzebra1
