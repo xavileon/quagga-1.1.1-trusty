@@ -63,7 +63,6 @@ Package: quagga-core
 Architecture: any
 Depends:
  iproute2,
- libquagga0 (= ${binary:Version}),
  ${misc:Depends},
  ${shlibs:Depends}
 Pre-Depends:
@@ -116,43 +115,6 @@ Description: network routing daemons (documentation)
  well as the IPv6 versions of these.
  .
  This package contains the extended documentation.
-
-Package: libquagga0
-Section: libs
-Architecture: any
-Depends:
- ${misc:Depends},
- ${shlibs:Depends}
-Replaces:
- quagga (<< 1.1.0-1)
-Breaks:
- quagga (<< 1.1.0-1)
-Suggests:
- quagga (= ${binary:Version})
-Description: network routing daemons (libraries)
- GNU Quagga is free software which manages TCP/IP based routing protocols.
- It supports BGP4, BGP4+, OSPFv2, OSPFv3, IS-IS, RIPv1, RIPv2, and RIPng as
- well as the IPv6 versions of these.
- .
- This package contains the shared libraries.
-
-Package: libquagga-dev
-Section: libdevel
-Architecture: any
-Depends:
- libquagga0 (= ${binary:Version}),
- ${misc:Depends},
- ${shlibs:Depends}
-Replaces:
- quagga (<< 1.1.0-1)
-Breaks:
- quagga (<< 1.1.0-1)
-Description: network routing daemons (development files)
- GNU Quagga is free software which manages TCP/IP based routing protocols.
- It supports BGP4, BGP4+, OSPFv2, OSPFv3, IS-IS, RIPv1, RIPv2, and RIPng as
- well as the IPv6 versions of these.
- .
- This package contains the development files (C headers and static libraries).
 
 Package: quagga-bgpd
 Architecture: any

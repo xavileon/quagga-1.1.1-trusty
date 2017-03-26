@@ -3,3 +3,4 @@ redhat/zebra.service /lib/systemd/system/
 usr/bin/vtysh
 usr/sbin/zebra
 usr/share/doc/quagga/* /usr/share/doc/quagga-core/
+usr/lib/*/*.so.*

@@ -28,6 +28,7 @@ override_dh_auto_configure:
 		--enable-configfile-mask=0640 \
 		--enable-logfile-mask=0640 \
 		--enable-multipath=64 \
+		--libdir=/usr/lib/quagga \
 		$(shell dpkg-buildflags --export=cmdline)
 
 override_dh_auto_build:
