@@ -1,3 +1,14 @@
+quagga (1.1.1-2) unstable; urgency=medium
+
+  * Remove libquagga0 and libquagga-dev binary packages (Closes: #856936).
+    - Move shared objects into quagga-core, as they are currently intended
+      by upstream to be private.
+    - Avoid shipping headers and static libraries at all.
+    - Upstream plans to ship with a stable API/ABI in future, and these
+      changes will be reviewed then.
+
+ -- Scott Leggett <scott@sl.id.au>  Sun, 26 Mar 2017 23:04:32 +1100
+
 quagga (1.1.1-1) unstable; urgency=low
 
   * SECURITY:
