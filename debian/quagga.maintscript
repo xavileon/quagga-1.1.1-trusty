@@ -1,4 +1,4 @@
 rm_conffile /etc/init.d/quagga      1.1.0-1~ quagga
 rm_conffile /etc/logrotate.d/quagga 1.1.0-1~ quagga
-rm_conffile /etc/quagga/debian.conf 1.1.0-1~ quagga
 rm_conffile /etc/quagga/daemons     1.1.0-1~ quagga
+rm_conffile /etc/quagga/debian.conf 1.1.0-1~ quagga

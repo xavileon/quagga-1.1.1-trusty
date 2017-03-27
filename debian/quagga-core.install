@@ -1,6 +1,6 @@
 debian/etc/pam.d/quagga /etc/pam.d/
 redhat/zebra.service /lib/systemd/system/
 usr/bin/vtysh
+usr/lib/*/*.so.*
 usr/sbin/zebra
 usr/share/doc/quagga/* /usr/share/doc/quagga-core/
-usr/lib/*/*.so.*
