@@ -73,10 +73,12 @@ Conflicts:
  zebra-pj
 Replaces:
  libquagga0 (<< 1.1.1-2~),
+ quagga (<< 1.1.0-1),
  zebra,
  zebra-pj
 Breaks:
- libquagga0 (<< 1.1.1-2~)
+ libquagga0 (<< 1.1.1-2~),
+ quagga (<< 1.1.0-1)
 Suggests:
  quagga-bgpd (= ${binary:Version}),
  quagga-isisd (= ${binary:Version}),
