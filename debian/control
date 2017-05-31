@@ -67,7 +67,7 @@ Depends:
  ${shlibs:Depends}
 Pre-Depends:
  adduser,
- dpkg (>= 1.17.14)
+ dpkg (>= 1.17.5ubuntu5.4)
 Conflicts:
  zebra,
  zebra-pj

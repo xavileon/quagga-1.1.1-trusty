@@ -1,3 +1,18 @@
+Quagga 1.1.1 for Ubuntu Trusty
+==============================
+
+To compile these backported Ubuntu Trusty packages, you need to:
+* read https://www.debian.org/doc/manuals/maint-guide/build.en.html
+* install gcc-5 (obtained from ppa:ubuntu-toolchain-r/test)
+* install debhelper >= 10.0.0 (obtained from debian jessie repositories)
+
+After you have installed all the build dependencies, just execute on this repo:
+$ dpkg-buildpackage -us -uc
+
+
+Original
+========
+
 Quagga is free software that manages various IPv4 and IPv6 routing
 protocols.
 

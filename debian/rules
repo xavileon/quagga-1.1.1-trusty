@@ -18,7 +18,7 @@ override_dh_auto_configure:
 	# disable watchquagga since we rely on systemd
 	dh_auto_configure -- \
 		--enable-exampledir=/usr/share/doc/quagga/examples/ \
-		--localstatedir=/run/quagga \
+		--localstatedir=/var/run/quagga \
 		--sysconfdir=/etc/quagga \
 		--disable-watchquagga \
 		--with-libpam \
@@ -29,7 +29,7 @@ override_dh_auto_configure:
 		--enable-logfile-mask=0640 \
 		--enable-multipath=64 \
 		--libdir=/usr/lib/quagga \
-		$(shell dpkg-buildflags --export=cmdline)
+		$(dpkg-buildflags --export=cmdline)
 
 override_dh_auto_build:
 	dh_auto_build
@@ -47,3 +47,9 @@ override_dh_strip:
 # avoid lintian warning package-has-unnecessary-activation-of-ldconfig-trigger
 override_dh_makeshlibs:
 	dh_makeshlibs --no-scripts
+
+override_dh_systemd_enable:
+	echo "Disable systemd"
+
+override_dh_systemd_start:
+	echo "Disable systemd"
